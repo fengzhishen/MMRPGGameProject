@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 51b49a173bdfacb479d8fb669f78ee86
+timeCreated: 1528480045
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: UICommonAtlas_0
+    21300002: UICommonAtlas_1
+    21300004: UICommonAtlas_2
+    21300006: UICommonAtlas_3
+    21300008: UICommonAtlas_4
+    21300010: UICommonAtlas_5
+    21300012: UICommonAtlas_6
+    21300014: UICommonAtlas_7
+    21300016: UICommonAtlas_8
+    21300018: UICommonAtlas_9
+    21300020: UICommonAtlas_10
+    21300022: UICommonAtlas_11
+    21300024: UICommonAtlas_12
+    21300026: UICommonAtlas_13
+    21300028: UICommonAtlas_14
+    21300030: UICommonAtlas_15
+    21300032: UICommonAtlas_16
+    21300034: UICommonAtlas_17
+    21300036: UICommonAtlas_18
+    21300038: UICommonAtlas_19
+    21300040: UICommonAtlas_20
+    21300042: UICommonAtlas_21
+    21300044: UICommonAtlas_22
+    21300046: UICommonAtlas_23
+    21300048: UICommonAtlas_24
+    21300050: UICommonAtlas_25
+    21300052: UICommonAtlas_26
+    21300054: UICommonAtlas_27
+    21300056: UICommonAtlas_28
+    21300058: UICommonAtlas_29
+    21300060: UICommonAtlas_30
+    21300062: UICommonAtlas_31
+    21300064: UICommonAtlas_32
+    21300066: UICommonAtlas_33
+    21300068: UICommonAtlas_34
+    21300070: UICommonAtlas_35
+    21300072: UICommonAtlas_36
+    21300074: UICommonAtlas_37
+    21300076: UICommonAtlas_38
+    21300078: UICommonAtlas_39
+    21300080: UICommonAtlas_40
+    21300082: UICommonAtlas_41
+    21300084: UICommonAtlas_42
+    21300086: UICommonAtlas_43
+    21300088: UICommonAtlas_44
+    21300090: UICommonAtlas_45
+    21300092: UICommonAtlas_46
+    21300094: UICommonAtlas_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 2
+    aniso: 4
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 4096
+    textureFormat: 33
+    compressionQuality: 100
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    sprites:
+    - name: UICommonAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 385
+        width: 101
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.5, y: 25}
+        - {x: 39.5, y: 27}
+        - {x: 39.5, y: 32}
+        - {x: 38.5, y: 41}
+        - {x: -35.5, y: 41}
+        - {x: -50.5, y: 18}
+        - {x: -50.5, y: -41}
+        - {x: 50.5, y: -41}
+        - {x: 50.5, y: 27}
+        - {x: 40.5, y: 27}
+      - - {x: 36.5, y: 41}
+        - {x: 36.5, y: 39}
+        - {x: 45.5, y: 30}
+        - {x: 50.5, y: 30}
+        - {x: 50.5, y: 41}
+    - name: UICommonAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 453
+        width: 202
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -101, y: -16}
+        - {x: -98, y: -22}
+        - {x: 96, y: -22}
+        - {x: 101, y: -21}
+        - {x: 101, y: 22}
+        - {x: 5, y: 22}
+        - {x: -101, y: 8}
+    - name: UICommonAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 453
+        width: 20
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 453
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 20.5}
+        - {x: -25, y: -20.5}
+        - {x: 18, y: -20.5}
+        - {x: 25, y: -4.5}
+        - {x: 25, y: 20.5}
+    - name: UICommonAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 452
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.5, y: 40.5}
+        - {x: -37.5, y: 32.5}
+        - {x: -40.5, y: 12.5}
+        - {x: -40.5, y: -40.5}
+        - {x: 40.5, y: -40.5}
+        - {x: 40.5, y: 39.5}
+        - {x: 37.5, y: 40.5}
+    - name: UICommonAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 365
+        width: 86
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 42}
+        - {x: -43, y: 10}
+        - {x: -43, y: -42}
+        - {x: 35, y: -42}
+        - {x: 43, y: -36}
+        - {x: 43, y: 37}
+        - {x: 30, y: 42}
+      - - {x: -43, y: 42}
+        - {x: -43, y: 39}
+        - {x: -41, y: 39}
+        - {x: -39, y: 41}
+        - {x: -39, y: 42}
+    - name: UICommonAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 438
+        width: 110
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 415
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 18}
+        - {x: -18, y: -18}
+        - {x: 18, y: -18}
+        - {x: 18, y: 18}
+    - name: UICommonAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 372
+        width: 83
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41.5, y: 40}
+        - {x: -41.5, y: -40}
+        - {x: 39.5, y: -40}
+        - {x: 41.5, y: -38}
+        - {x: 41.5, y: 32}
+        - {x: 39.5, y: 40}
+    - name: UICommonAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 369
+        width: 81
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 41}
+        - {x: -40.5, y: 27}
+        - {x: -40.5, y: -41}
+        - {x: 40.5, y: -41}
+        - {x: 40.5, y: 41}
+    - name: UICommonAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 424
+        width: 145
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 332
+        width: 82
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: -34}
+        - {x: 41, y: 38}
+        - {x: 40, y: 43}
+        - {x: -36, y: 43}
+        - {x: -41, y: 37}
+        - {x: -41, y: -43}
+        - {x: 35, y: -43}
+        - {x: 35, y: -41}
+        - {x: 32, y: -38}
+    - name: UICommonAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 393
+        width: 150
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 370
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 22}
+        - {x: -20.5, y: 19}
+        - {x: -20.5, y: -22}
+        - {x: 19.5, y: -22}
+        - {x: 20.5, y: -18}
+        - {x: 20.5, y: 22}
+    - name: UICommonAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 385
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 305
+        width: 83
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.5, y: 43}
+        - {x: -41.5, y: 42}
+        - {x: -41.5, y: -43}
+        - {x: 38.5, y: -43}
+        - {x: 41.5, y: -42}
+        - {x: 41.5, y: 43}
+    - name: UICommonAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 371
+        width: 113
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 296
+        width: 86
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: 36.5}
+        - {x: 42, y: 42.5}
+        - {x: -27, y: 42.5}
+        - {x: -43, y: 26.5}
+        - {x: -43, y: -42.5}
+        - {x: 35, y: -42.5}
+        - {x: 36, y: -40.5}
+        - {x: 36, y: -37.5}
+        - {x: 43, y: -32.5}
+    - name: UICommonAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 300
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 42}
+        - {x: -30.5, y: 40}
+        - {x: -37.5, y: 33}
+        - {x: -41.5, y: 7}
+        - {x: -41.5, y: -42}
+        - {x: 36.5, y: -42}
+        - {x: 41.5, y: -34}
+        - {x: 41.5, y: 39}
+        - {x: 34.5, y: 42}
+    - name: UICommonAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 221
+        width: 305
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: -59.5}
+        - {x: 96.5, y: -36.5}
+        - {x: 152.5, y: -2.5}
+        - {x: 152.5, y: 28.5}
+        - {x: 118.5, y: 74.5}
+        - {x: -152.5, y: 74.5}
+        - {x: -152.5, y: -74.5}
+        - {x: 34.5, y: -74.5}
+        - {x: 34.5, y: -73.5}
+        - {x: 29.5, y: -67.5}
+        - {x: 10.5, y: -57.5}
+      - - {x: 149.5, y: -74.5}
+        - {x: 152.5, y: -74.5}
+        - {x: 152.5, y: -19.5}
+        - {x: 149.5, y: -20.5}
+      - - {x: 149.5, y: 40.5}
+        - {x: 151.5, y: 38.5}
+        - {x: 152.5, y: 38.5}
+        - {x: 152.5, y: 56.5}
+        - {x: 149.5, y: 55.5}
+    - name: UICommonAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 365
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 283
+        width: 84
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 43}
+        - {x: -42, y: 33}
+        - {x: -42, y: -43}
+        - {x: 42, y: -43}
+        - {x: 42, y: 31}
+        - {x: 34, y: 43}
+    - name: UICommonAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 278
+        width: 124
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 20.5}
+        - {x: -62, y: -46.5}
+        - {x: -54, y: -46.5}
+        - {x: -33, y: -33.5}
+        - {x: -33, y: 10.5}
+        - {x: -50, y: 20.5}
+      - - {x: -62, y: 46.5}
+        - {x: -62, y: -2.5}
+        - {x: -50, y: -46.5}
+        - {x: 62, y: -46.5}
+        - {x: 62, y: 46.5}
+    - name: UICommonAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 327
+        width: 30
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 276
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.5, y: 44}
+        - {x: -40.5, y: 27}
+        - {x: -41.5, y: 2}
+        - {x: -41.5, y: -2}
+        - {x: -41.5, y: 34}
+        - {x: -44.5, y: 37}
+        - {x: -45.5, y: 37}
+        - {x: -45.5, y: -44}
+        - {x: 45.5, y: -44}
+        - {x: 45.5, y: 33}
+        - {x: 28.5, y: 44}
+    - name: UICommonAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 283
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 30}
+        - {x: -30, y: 28}
+        - {x: -30, y: -25}
+        - {x: -20, y: -30}
+        - {x: 30, y: -30}
+        - {x: 30, y: 21}
+        - {x: 27, y: 30}
+    - name: UICommonAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 204
+        width: 86
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: 45.5}
+        - {x: -32, y: 45.5}
+        - {x: -43, y: 16.5}
+        - {x: -43, y: -43.5}
+        - {x: -20, y: -45.5}
+        - {x: 43, y: -45.5}
+      - - {x: -43, y: 45.5}
+        - {x: -43, y: 42.5}
+        - {x: -36, y: 42.5}
+        - {x: -34, y: 44.5}
+        - {x: -34, y: 45.5}
+      - - {x: -34, y: 45.5}
+        - {x: -33, y: 42.5}
+        - {x: -30, y: 42.5}
+        - {x: -28, y: 44.5}
+        - {x: -28, y: 45.5}
+    - name: UICommonAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 243
+        width: 86
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: 41.5}
+        - {x: -43, y: -41.5}
+        - {x: 42, y: -41.5}
+        - {x: 43, y: -40.5}
+        - {x: 43, y: 41.5}
+    - name: UICommonAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 189
+        width: 86
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 43}
+        - {x: -43, y: 35}
+        - {x: -43, y: -43}
+        - {x: 41, y: -43}
+        - {x: 43, y: -35}
+        - {x: 43, y: 43}
+    - name: UICommonAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 215
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 42}
+        - {x: -40.5, y: 38}
+        - {x: -42.5, y: 20}
+        - {x: -42.5, y: -42}
+        - {x: 40.5, y: -42}
+        - {x: 42.5, y: -34}
+        - {x: 42.5, y: 42}
+    - name: UICommonAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 219
+        width: 82
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 42.5}
+        - {x: -41, y: -42.5}
+        - {x: 36, y: -42.5}
+        - {x: 41, y: -37.5}
+        - {x: 41, y: 42.5}
+    - name: UICommonAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 214
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 25}
+        - {x: -17.5, y: -15}
+        - {x: -8.5, y: -25}
+        - {x: 15.5, y: -25}
+        - {x: 17.5, y: -24}
+        - {x: 17.5, y: 10}
+        - {x: 3.5, y: 25}
+    - name: UICommonAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 186
+        width: 99
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: 48}
+        - {x: -49.5, y: 42}
+        - {x: -49.5, y: -36}
+        - {x: -45.5, y: -48}
+        - {x: 49.5, y: -48}
+        - {x: 49.5, y: 39}
+        - {x: 37.5, y: 48}
+      - - {x: 45.5, y: 36}
+        - {x: 46.5, y: 33}
+        - {x: 49.5, y: 33}
+        - {x: 49.5, y: 38}
+        - {x: 47.5, y: 38}
+      - - {x: 45.5, y: 48}
+        - {x: 45.5, y: 44}
+        - {x: 47.5, y: 42}
+        - {x: 49.5, y: 42}
+        - {x: 49.5, y: 48}
+    - name: UICommonAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 186
+        width: 88
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 45.5}
+        - {x: -44, y: -4.5}
+        - {x: -40, y: -36.5}
+        - {x: -33, y: -45.5}
+        - {x: 44, y: -45.5}
+        - {x: 44, y: 44.5}
+        - {x: 43, y: 45.5}
+    - name: UICommonAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 202
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 95, y: -53.5}
+        - {x: 85, y: 32.5}
+        - {x: 101, y: 37.5}
+        - {x: 101, y: 86.5}
+        - {x: 91, y: 118.5}
+        - {x: -88, y: 118.5}
+        - {x: -88, y: 117.5}
+        - {x: -101, y: 88.5}
+        - {x: -101, y: 46.5}
+        - {x: -99, y: 37.5}
+        - {x: -95, y: -23.5}
+        - {x: -101, y: -81.5}
+        - {x: -101, y: -111.5}
+        - {x: -81, y: -118.5}
+        - {x: 77, y: -118.5}
+        - {x: 95, y: -112.5}
+        - {x: 99, y: -74.5}
+    - name: UICommonAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 136
+        width: 174
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -87, y: 52.5}
+        - {x: -87, y: 19.5}
+        - {x: -83, y: 17.5}
+        - {x: -81, y: 17.5}
+        - {x: -87, y: 16.5}
+        - {x: -87, y: -52.5}
+        - {x: 87, y: -52.5}
+        - {x: 87, y: 52.5}
+    - name: UICommonAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 153
+        width: 154
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 32}
+        - {x: -77, y: -32}
+        - {x: 77, y: -32}
+        - {x: 77, y: 30}
+        - {x: 69, y: 32}
+    - name: UICommonAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 214
+        width: 38
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: UICommonAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 136
+        width: 213
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -81.5, y: 31.5}
+        - {x: -106.5, y: -12.5}
+        - {x: -106.5, y: -31.5}
+        - {x: 106.5, y: -31.5}
+        - {x: 106.5, y: 29.5}
+        - {x: 61.5, y: 31.5}
+      - - {x: -87.5, y: 19.5}
+        - {x: -86.5, y: 16.5}
+        - {x: -83.5, y: 16.5}
+        - {x: -81.5, y: 18.5}
+        - {x: -82.5, y: 21.5}
+        - {x: -85.5, y: 21.5}
+    - name: UICommonAtlas_39
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 128
+        width: 154
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 30}
+        - {x: -77, y: -30}
+        - {x: 77, y: -30}
+        - {x: 77, y: 30}
+    - name: UICommonAtlas_40
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 64
+        width: 123
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.5, y: 44}
+        - {x: -46.5, y: 44}
+        - {x: -61.5, y: 35}
+        - {x: -61.5, y: -19}
+        - {x: -50.5, y: -44}
+        - {x: 36.5, y: -44}
+        - {x: 61.5, y: -18}
+        - {x: 61.5, y: 17}
+        - {x: 56.5, y: 18}
+    - name: UICommonAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 125
+        width: 154
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 30}
+        - {x: -77, y: -30}
+        - {x: 77, y: -30}
+        - {x: 77, y: 30}
+    - name: UICommonAtlas_42
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 303
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 151.5, y: 29.5}
+        - {x: 101.5, y: 67.5}
+        - {x: -151.5, y: 67.5}
+        - {x: -151.5, y: -49.5}
+        - {x: -137.5, y: -67.5}
+        - {x: -11.5, y: -67.5}
+        - {x: 138.5, y: -17.5}
+        - {x: 145.5, y: -8.5}
+        - {x: 151.5, y: -8.5}
+    - name: UICommonAtlas_43
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 64
+        width: 206
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -99, y: 31.5}
+        - {x: -103, y: 10.5}
+        - {x: -103, y: -31.5}
+        - {x: 100, y: -31.5}
+        - {x: 103, y: -27.5}
+        - {x: 103, y: 29.5}
+        - {x: 93, y: 31.5}
+    - name: UICommonAtlas_44
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 64
+        width: 154
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 30}
+        - {x: -77, y: -30}
+        - {x: 77, y: -30}
+        - {x: 77, y: 30}
+    - name: UICommonAtlas_45
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 0
+        width: 206
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -99, y: 31.5}
+        - {x: -103, y: 10.5}
+        - {x: -103, y: -31.5}
+        - {x: 100, y: -31.5}
+        - {x: 103, y: -27.5}
+        - {x: 103, y: 29.5}
+        - {x: 93, y: 31.5}
+    - name: UICommonAtlas_46
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 0
+        width: 206
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -99, y: 31.5}
+        - {x: -103, y: 10.5}
+        - {x: -103, y: -31.5}
+        - {x: 100, y: -31.5}
+        - {x: 103, y: -27.5}
+        - {x: 103, y: 29.5}
+        - {x: 93, y: 31.5}
+    - name: UICommonAtlas_47
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 0
+        width: 74
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 25.5}
+        - {x: -37, y: -1.5}
+        - {x: -22, y: -25.5}
+        - {x: 23, y: -25.5}
+        - {x: 37, y: -7.5}
+        - {x: 37, y: 25.5}
+    outline: []
+  spritePackingTag: Common
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
