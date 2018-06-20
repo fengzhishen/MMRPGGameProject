@@ -29,7 +29,7 @@ public class UIGameServerSelectView : UIWindowViewBase
     /// </summary>
     public Action<int> m_OnGameServerPageClickCallback;
 
-    public void SetGameServerUI(IList<RetGameServerPageEntity> list)
+    public void SetGameServerPageUI(IList<RetGameServerPageEntity> list)
     {
         if (list == null || list.Count <= 0) return;
 
@@ -81,7 +81,7 @@ public class UIGameServerSelectView : UIWindowViewBase
     /// 更新区服列表
     /// </summary>
     /// <param name="entities"></param>
-    public void SetGameServerUI(List<RetGameServerEntity> entities)
+    public void SetGameServerUI(List<RetGameServerEntity> entities, System.Action<string> onClickServerItemHanlder)
     {
 
         if (entities == null || entities.Count <= 0) return;
@@ -101,10 +101,12 @@ public class UIGameServerSelectView : UIWindowViewBase
             @object.transform.localPosition = Vector3.zero;
             @object.transform.localScale = Vector3.one;
 
-            UIGameServerItemView uIGameServerPageItemView = @object.GetComponent<UIGameServerItemView>();
-            if (uIGameServerPageItemView != null)
+            UIGameServerItemView uIGameServerItemView = @object.GetComponent<UIGameServerItemView>();
+            uIGameServerItemView.m_onClickGameServerItemHanlder = onClickServerItemHanlder;
+
+            if (uIGameServerItemView != null)
             {
-                uIGameServerPageItemView.SetUI(entities[i]);
+                uIGameServerItemView.SetUI(entities[i]);
             }
         }
     }

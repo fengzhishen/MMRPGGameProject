@@ -73,9 +73,14 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
 
             if (retGameServerPageEntities != null)
             {
-                m_uIGameServerSelectView.SetGameServerUI(retGameServerPageEntities);
+                m_uIGameServerSelectView.SetGameServerUI(retGameServerPageEntities, OnClickGameServerItemCallback);
             }
         }
+    }
+
+    private void OnClickGameServerItemCallback(string serverName)
+    {
+        Debug.Log(serverName);
     }
 
     /// <summary>
@@ -103,7 +108,7 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
             retGameServerPageEntities.Insert(0, new RetGameServerPageEntity { Name = "推荐服务器",PageIndex = 0});
             if (retGameServerPageEntities != null)
             {          
-                m_uIGameServerSelectView.SetGameServerUI(retGameServerPageEntities);
+                m_uIGameServerSelectView.SetGameServerPageUI(retGameServerPageEntities);
             }
 
             GetGameServer(0);

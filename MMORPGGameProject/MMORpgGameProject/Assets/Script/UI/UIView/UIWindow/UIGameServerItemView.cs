@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class UIGameServerItemView : MonoBehaviour
 {
@@ -32,6 +33,24 @@ public class UIGameServerItemView : MonoBehaviour
     /// 端口号
     /// </summary>
     private int m_port;
+
+    private void Start()
+    {
+        this.gameObject.AddComponent<Button>().onClick.AddListener(OnClickGameServerItemCallback);
+    }
+
+    /// <summary>
+    /// 点击游戏服务器回调处理
+    /// </summary>
+    private void OnClickGameServerItemCallback()
+    {
+        if(m_onClickGameServerItemHanlder != null)
+        {
+            m_onClickGameServerItemHanlder(m_gameServerName.text);
+        }
+    }
+
+    public Action<string> m_onClickGameServerItemHanlder;
 
     public void SetUI(RetGameServerEntity entity)
     {
