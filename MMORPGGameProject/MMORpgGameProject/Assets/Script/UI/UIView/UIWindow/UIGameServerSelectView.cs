@@ -81,8 +81,9 @@ public class UIGameServerSelectView : UIWindowViewBase
     /// 更新区服列表
     /// </summary>
     /// <param name="entities"></param>
-    public void SetGameServerUI(List<RetGameServerEntity> entities, System.Action<string> onClickServerItemHanlder)
+    public void SetGameServerUI(List<RetGameServerEntity> entities , System.Action<RetGameServerEntity> onClickServerItemHanlder)
     {
+        entities.Reverse();
 
         if (entities == null || entities.Count <= 0) return;
         if(m_objList.Count > 0)

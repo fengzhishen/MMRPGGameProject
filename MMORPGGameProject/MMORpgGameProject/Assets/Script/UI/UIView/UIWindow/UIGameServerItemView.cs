@@ -6,6 +6,7 @@ using System;
 
 public class UIGameServerItemView : MonoBehaviour
 {
+    private RetGameServerEntity m_RetGameServerEntity;
     /// <summary>
     /// ·þÎñÆ÷×´Ì¬
     /// </summary>
@@ -46,14 +47,15 @@ public class UIGameServerItemView : MonoBehaviour
     {
         if(m_onClickGameServerItemHanlder != null)
         {
-            m_onClickGameServerItemHanlder(m_gameServerName.text);
+            m_onClickGameServerItemHanlder(this.m_RetGameServerEntity);
         }
     }
 
-    public Action<string> m_onClickGameServerItemHanlder;
+    public Action<RetGameServerEntity> m_onClickGameServerItemHanlder;
 
     public void SetUI(RetGameServerEntity entity)
     {
+        this.m_RetGameServerEntity = entity;
         m_currGameServerStatus.sprite = m_gameServerStatus[entity.RunStatus];
 
         m_ip = entity.Ip;

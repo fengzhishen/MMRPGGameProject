@@ -6,10 +6,9 @@ public class UIGameServerEnterView : UIWindowViewBase
 {
     public Text textDefaultGameServer;
 
-    public void SetUI(string gameServerName)
+    public void SetUI(RetGameServerEntity gameServerEntity)
     {
-        if (string.IsNullOrEmpty(gameServerName)) return;
-        textDefaultGameServer.text = gameServerName;
+        textDefaultGameServer.text = gameServerEntity.Name;
     }
 
     protected override void OnBtnClick(GameObject go)

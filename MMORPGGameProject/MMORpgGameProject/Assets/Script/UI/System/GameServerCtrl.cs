@@ -78,9 +78,19 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
         }
     }
 
-    private void OnClickGameServerItemCallback(string serverName)
+    /// <summary>
+    /// 当点击选择服务器视图中的服务器item回调处理
+    /// </summary>
+    /// <param name="serverName"></param>
+    private void OnClickGameServerItemCallback(RetGameServerEntity gameServerEntity)
     {
-        Debug.Log(serverName);
+        m_gameServerEnterView.SetUI(gameServerEntity);
+
+        //保存当前选择的区服信息
+        GlobalInit.Instance.m_currentSelectGameServer = gameServerEntity;
+     
+        //关闭当前选择服务器视图
+        WindowUIMgr.Instance.CloseWindow(WindowUIType.GameServerSelect);
     }
 
     /// <summary>
@@ -106,6 +116,7 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
         {
             List<RetGameServerPageEntity> retGameServerPageEntities = LitJson.JsonMapper.ToObject<List<RetGameServerPageEntity>>(obj.Value);
             retGameServerPageEntities.Insert(0, new RetGameServerPageEntity { Name = "推荐服务器",PageIndex = 0});
+
             if (retGameServerPageEntities != null)
             {          
                 m_uIGameServerSelectView.SetGameServerPageUI(retGameServerPageEntities);
@@ -135,7 +146,8 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
     /// </summary>
     private  void OpenGameServerEnterView()
     {
-        base.OpenView(WindowUIType.GameServerEnter);
+        // base.OpenView(WindowUIType.GameServerEnter);
+        m_gameServerEnterView = WindowUIMgr.Instance.OpenWindow(WindowUIType.GameServerEnter).GetComponent<UIGameServerEnterView>();
     }
 
     /// <summary>

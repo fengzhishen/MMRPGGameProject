@@ -45,12 +45,7 @@ public class TestMemoryStrean : MonoBehaviour
         }
         Debug.Log(args.Value);
 
-        AccountEntity entity = new AccountEntity();
-
-        entity = LitJson.JsonMapper.ToObject<AccountEntity>(args.Value);
-
-        string format = "id:{0}, UserName:{1}, YuanBao:{2}";
-        Debug.LogFormat(format, entity.Id, entity.UserName, entity.YuanBao);
+  
     }
 
     private void OnPostDataCallback(NetWorkHttp.CallBackArgs args)

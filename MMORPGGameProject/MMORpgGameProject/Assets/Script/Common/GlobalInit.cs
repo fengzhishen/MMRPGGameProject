@@ -52,6 +52,12 @@ public class GlobalInit : MonoBehaviour
     public AnimationCurve UIAnimationCurve = new AnimationCurve(new Keyframe(0f, 0f, 0f, 1f), new Keyframe(1f, 1f, 1f, 0f));
 
     /// <summary>
+    /// 当前选择的区服
+    /// </summary>
+    [HideInInspector]
+    public RetGameServerEntity m_currentSelectGameServer;
+
+    /// <summary>
     /// 保存服务器的时间
     /// </summary>
     private  long ServerTime = 0;

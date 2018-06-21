@@ -1,6 +1,6 @@
 using System;
 
-public class AccountEntity
+public class RetAccountEntity
 {
     public int Id { get; set; }
          
@@ -13,6 +13,10 @@ public class AccountEntity
     public int LastServerId { get; set; }
 
     public string LastServerName { get; set; }
+
+    public string LastServerIP { get; set; }
+
+    public string LastServerPort { get; set; }
 
     public DateTime CreateTime { get; set; }
   
