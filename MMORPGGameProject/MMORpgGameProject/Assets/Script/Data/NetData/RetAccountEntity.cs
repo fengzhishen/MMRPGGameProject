@@ -16,10 +16,10 @@ public class RetAccountEntity
 
     public string LastServerIP { get; set; }
 
-    public string LastServerPort { get; set; }
+    public int LastServerPort { get; set; }
 
     public DateTime CreateTime { get; set; }
   
-    public DateTime UpdateTime { get { return Convert.ToDateTime(0); } }
-     
+    public DateTime UpdateTime { get; set; }
 }
+     

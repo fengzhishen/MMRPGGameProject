@@ -73,18 +73,14 @@ public class AccountCtr : SystemBaseCtr<AccountCtr>
         }
         else
         {
-            ReturnValue returnValue = new ReturnValue();
-            returnValue = LitJson.JsonMapper.ToObject<ReturnValue>(obj.Value);
-            if(returnValue.HasError)
-            {
-                LogError(returnValue.ErroMsg);
-                return;
-            }
-            Log("注册成功" +  returnValue.Value);
-            Stat.Reg((int)returnValue.Value, resiterView.txt_AccountInpField.text);
+            ReturnValue returnValue = LitJson.JsonMapper.ToObject<ReturnValue>(obj.Value);
+            RetAccountEntity retAccountEntity = LitJson.JsonMapper.ToObject<RetAccountEntity>(returnValue.Value.ToString());
+            GlobalInit.Instance.m_currentAccountEntity = retAccountEntity;
+            Log("注册成功" + retAccountEntity.LastServerName);
+            Stat.Reg(retAccountEntity.Id, resiterView.txt_AccountInpField.text);
 
             //本地缓存玩家的帐号和密码
-            PlayerPrefs.SetInt(ConstDefine.LogOn_AccountID, (int)returnValue.Value);
+            PlayerPrefs.SetInt(ConstDefine.LogOn_AccountID, retAccountEntity.Id);
 
             PlayerPrefs.SetString(ConstDefine.LogOn_AccountID, resiterView.txt_AccountInpField.text);
 
@@ -125,6 +121,23 @@ public class AccountCtr : SystemBaseCtr<AccountCtr>
     }
 
     /// <summary>
+    /// 设置已经选择的服务器信息
+    /// </summary>
+    /// <param name="entity"></param>
+    private void SetCurrentSelectGameServer(RetAccountEntity entity)
+    {
+        RetGameServerEntity serverEntity = new RetGameServerEntity
+        {
+            Id = entity.Id,
+            Name = entity.LastServerName,
+            Ip = entity.LastServerIP,
+            Port = entity.LastServerPort
+        };
+
+        GlobalInit.Instance.m_currentSelectGameServer = serverEntity;
+    }
+
+    /// <summary>
     /// 点击登录之后服务器对客户端的回调处理
     /// </summary>
     /// <param name="obj"></param>
@@ -144,15 +157,29 @@ public class AccountCtr : SystemBaseCtr<AccountCtr>
             }
             else
             {
-                Log("登录成功" + @return.Value);
-                Stat.LogOn((int)@return.Value, logOnView.txt_AccountInpField.text);
+                RetAccountEntity retAccountEntity = LitJson.JsonMapper.ToObject<RetAccountEntity>(@return.Value.ToString());
 
-                //保存一下帐号密码在本地
-                PlayerPrefs.SetInt(ConstDefine.LogOn_AccountID, (int)@return.Value);
-                PlayerPrefs.SetString(ConstDefine.LogOn_AccountUserName, logOnView.txt_AccountInpField.text);
-                PlayerPrefs.SetString(ConstDefine.LogOn_AccountPwd, logOnView.txt_PwdInpField.text);
+                GlobalInit.Instance.m_currentAccountEntity = retAccountEntity;
 
-                GameServerCtrl.Instance.OpenView(WindowUIType.GameServerEnter);
+                SetCurrentSelectGameServer(retAccountEntity);
+
+                string userName = "";
+                if(m_isAutoLogOn)
+                {
+                    userName = PlayerPrefs.GetString(ConstDefine.LogOn_AccountUserName);
+                    Stat.LogOn(PlayerPrefs.GetInt(ConstDefine.LogOn_AccountID),PlayerPrefs.GetString(ConstDefine.LogOn_AccountUserName));
+                }
+                else
+                {
+                    //保存一下帐号密码在本地
+                    PlayerPrefs.SetInt(ConstDefine.LogOn_AccountID, retAccountEntity.Id);
+                    PlayerPrefs.SetString(ConstDefine.LogOn_AccountUserName, logOnView.txt_AccountInpField.text);
+                    PlayerPrefs.SetString(ConstDefine.LogOn_AccountPwd, logOnView.txt_PwdInpField.text);
+                    Stat.LogOn(retAccountEntity.Id, logOnView.txt_AccountInpField.text);
+                }
+
+                 GameServerCtrl.Instance.OpenView(WindowUIType.GameServerEnter);
+                 GameServerCtrl.Instance.GameServerEnterView.SetUI(GlobalInit.Instance.m_currentSelectGameServer);
             }
         }
     }

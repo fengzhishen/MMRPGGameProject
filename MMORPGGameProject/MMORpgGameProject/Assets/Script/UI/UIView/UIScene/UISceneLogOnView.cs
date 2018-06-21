@@ -12,6 +12,6 @@ public class UISceneLogOnView : UISceneViewBase
     private IEnumerator OpenLogOnWindow()
     {
         yield return new WaitForSeconds(2.0f);
-        AccountCtr.Instance.OpenLogOnView();
+        AccountCtr.Instance.QuickLogOn();
     }  
 }

@@ -58,6 +58,11 @@ public class GlobalInit : MonoBehaviour
     public RetGameServerEntity m_currentSelectGameServer;
 
     /// <summary>
+    /// 当前帐号
+    /// </summary>
+    [HideInInspector]
+    public RetAccountEntity m_currentAccountEntity;
+    /// <summary>
     /// 保存服务器的时间
     /// </summary>
     private  long ServerTime = 0;

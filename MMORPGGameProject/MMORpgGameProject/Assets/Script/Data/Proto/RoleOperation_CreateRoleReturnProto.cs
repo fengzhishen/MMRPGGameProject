@@ -1,6 +1,6 @@
 //===================================================
 //作    者：边涯  http://www.u3dol.com  QQ群：87481002
-//创建时间：2018-05-30 14:12:34
+//创建时间：2017-07-05 11:59:23
 //备    注：
 //===================================================
 using System.Collections;
@@ -8,15 +8,14 @@ using System.Collections.Generic;
 using System;
 
 /// <summary>
-/// 获取邮件详情
+/// 服务器返回创建角色消息
 /// </summary>
-public struct Mail_Get_DetailProto : IProto
+public struct RoleOperation_CreateRoleReturnProto : IProto
 {
-    public ushort ProtoCode { get { return 1005; } }
+    public ushort ProtoCode { get { return 10004; } }
 
     public bool IsSuccess; //是否成功
-    public string Name; //邮件名称
-    public ushort ErrorCode; //错误编码
+    public short MessageId; //错误编号
 
     public byte[] ToArray()
     {
@@ -24,31 +23,23 @@ public struct Mail_Get_DetailProto : IProto
         {
             ms.WriteUShort(ProtoCode);
             ms.WriteBool(IsSuccess);
-            if(IsSuccess)
+            if(!IsSuccess)
             {
-                ms.WriteUTF8String(Name);
-            }
-            else
-            {
-                ms.WriteUShort(ErrorCode);
+                ms.WriteShort(MessageId);
             }
             return ms.ToArray();
         }
     }
 
-    public static Mail_Get_DetailProto GetProto(byte[] buffer)
+    public static RoleOperation_CreateRoleReturnProto GetProto(byte[] buffer)
     {
-        Mail_Get_DetailProto proto = new Mail_Get_DetailProto();
+        RoleOperation_CreateRoleReturnProto proto = new RoleOperation_CreateRoleReturnProto();
         using (MMO_MemoryStream ms = new MMO_MemoryStream(buffer))
         {
             proto.IsSuccess = ms.ReadBool();
-            if(proto.IsSuccess)
+            if(!proto.IsSuccess)
             {
-                proto.Name = ms.ReadUTF8String();
-            }
-            else
-            {
-                proto.ErrorCode = ms.ReadUShort();
+                proto.MessageId = ms.ReadShort();
             }
         }
         return proto;

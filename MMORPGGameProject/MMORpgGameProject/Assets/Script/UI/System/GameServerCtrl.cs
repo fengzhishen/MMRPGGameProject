@@ -10,6 +10,17 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
 {
     private UIGameServerEnterView m_gameServerEnterView;
     private UIGameServerSelectView m_uIGameServerSelectView;
+    private Dictionary<int, List<RetGameServerEntity>> m_gameServerDic = new Dictionary<int, List<RetGameServerEntity>>();
+    private int m_currentClickPage = 0;
+    private bool m_isBusy = false;
+
+    public UIGameServerEnterView GameServerEnterView
+    {
+        get
+        {
+            return m_gameServerEnterView;
+        } 
+    }
 
     public GameServerCtrl()
     {
@@ -48,32 +59,43 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
     }
 
     /// <summary>
-    /// 获取区服
+    /// 获取也签对应的区服列表数据
     /// </summary>
     private void GetGameServer(int pageIndex)
     {
-        Debug.Log(11);
+        //先看看缓存是不是有数据了
+        if(m_gameServerDic.ContainsKey(pageIndex))
+        {
+            //说明点击相同页签
+            m_uIGameServerSelectView.SetGameServerUI(m_gameServerDic[pageIndex], OnClickGameServerItemCallback);
+            return;
+        }
         //获取页签
         Dictionary<string, object> dic = new Dictionary<string, object>();
 
         dic["Type"] = 1;   //type = 0 获取页签   1 是服务器列表  
         dic["PageIndex"] = pageIndex;
+        m_currentClickPage = pageIndex;
+        if (m_isBusy == true) return;
+        m_isBusy = true;
         NetWorkHttp.Instance.SendData(GlobalInit.WebAccountUrl + "api/GameServer", true, dic, OnGetGameServerCallback);
     }
 
     private void OnGetGameServerCallback(NetWorkHttp.CallBackArgs obj)
     {
+        m_isBusy = false;
         if (obj.HasError)
         {
             LogError(obj.ErrorMsg);
         }
         else
         {
-            List<RetGameServerEntity> retGameServerPageEntities = LitJson.JsonMapper.ToObject<List<RetGameServerEntity>>(obj.Value);
-
-            if (retGameServerPageEntities != null)
+             List<RetGameServerEntity> retGameServerEntities = LitJson.JsonMapper.ToObject<List<RetGameServerEntity>>(obj.Value);
+            //把服务器返回的页签对应的服务器列表数据缓存起来
+            m_gameServerDic.Add(m_currentClickPage, retGameServerEntities);
+            if (retGameServerEntities != null)
             {
-                m_uIGameServerSelectView.SetGameServerUI(retGameServerPageEntities, OnClickGameServerItemCallback);
+                m_uIGameServerSelectView.SetGameServerUI(retGameServerEntities, OnClickGameServerItemCallback);
             }
         }
     }
@@ -84,7 +106,7 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
     /// <param name="serverName"></param>
     private void OnClickGameServerItemCallback(RetGameServerEntity gameServerEntity)
     {
-        m_gameServerEnterView.SetUI(gameServerEntity);
+        GameServerEnterView.SetUI(gameServerEntity);
 
         //保存当前选择的区服信息
         GlobalInit.Instance.m_currentSelectGameServer = gameServerEntity;
@@ -99,7 +121,35 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
     /// <param name="p"></param>
     private void GameServerEnterViewBtnEnterGameClick(object[] p)
     {
-       
+        UpdateLastLogOnServer(GlobalInit.Instance.m_currentAccountEntity, GlobalInit.Instance.m_currentSelectGameServer);
+    }
+
+    /// <summary>
+    /// 把最后登录的服务器信息存入数据库
+    /// </summary>
+    private void UpdateLastLogOnServer(RetAccountEntity retAccount,RetGameServerEntity retGameServer)
+    {
+        Dictionary<string, object> dic = new Dictionary<string, object>();
+        {
+            dic["Type"] = 2;
+            dic["userId"] = retAccount.Id;
+            dic["lastServerId"] = retGameServer.Id;
+            dic["lastServerName"] = retGameServer.Name;
+        }
+
+        NetWorkHttp.Instance.SendData(GlobalInit.WebAccountUrl + "api/GameServer", true, dic, OnUpdateLastLogServerCallback);
+    }
+
+    private void OnUpdateLastLogServerCallback(NetWorkHttp.CallBackArgs args)
+    {
+        if(args.HasError)
+        {
+            LogError(args.ErrorMsg);
+        }
+        else
+        {
+            Log("更新最后登录服务器完毕。");
+        }
     }
 
     /// <summary>
@@ -115,6 +165,7 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
         else
         {
             List<RetGameServerPageEntity> retGameServerPageEntities = LitJson.JsonMapper.ToObject<List<RetGameServerPageEntity>>(obj.Value);
+
             retGameServerPageEntities.Insert(0, new RetGameServerPageEntity { Name = "推荐服务器",PageIndex = 0});
 
             if (retGameServerPageEntities != null)
