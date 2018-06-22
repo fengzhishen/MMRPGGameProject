@@ -29,7 +29,7 @@ public class CitySceneCtrl : MonoBehaviour
     void Start()
     {
         //加载玩家
-        GameObject obj = RoleMgr.Instance.LoadRole("Role_MainPlayer", RoleType.MainPlayer);
+        GameObject obj = RoleMgr.Instance.LoadRole("Role_MainPlayer_Cike", RoleType.MainPlayer);
 
         obj.transform.position = m_PlayerBornPos.position;
 
@@ -37,7 +37,12 @@ public class CitySceneCtrl : MonoBehaviour
         GlobalInit.Instance.CurrPlayer = obj.GetComponent<RoleCtrl>();
         GlobalInit.Instance.CurrPlayer.Init(RoleType.MainPlayer, new RoleInfoBase() { NickName = GlobalInit.Instance.CurrRoleNickName, CurrHP=10000, MaxHP=10000 }, new RoleMainPlayerCityAI(GlobalInit.Instance.CurrPlayer));
 
-        UIPlayerInfo.Instance.SetPlayerInfo();
+       // UIPlayerInfo.Instance.SetPlayerInfo();
+
+        if(DelegateDefine.Instance.OnSceneLoadOk != null)
+        {
+            DelegateDefine.Instance.OnSceneLoadOk();
+        }
     }
 
     #region OnZoom 摄像机缩放

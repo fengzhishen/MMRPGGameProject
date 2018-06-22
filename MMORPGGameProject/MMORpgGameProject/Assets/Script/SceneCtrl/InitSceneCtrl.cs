@@ -16,6 +16,6 @@ public class InitSceneCtrl : MonoBehaviour
     private IEnumerator LoadLogOn()
     {
         yield return new WaitForSeconds(2f);
-        SceneMgr.Instance.LoadToLogOn();
+        SceneMgr.Instance.LoadToCity();
     }
 }

@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LoadingSceneCtrl : MonoBehaviour 
 {
@@ -26,6 +27,16 @@ public class LoadingSceneCtrl : MonoBehaviour
 	{
         LayerUIMgr.Instance.Reset();
         StartCoroutine(LoadingScene());
+        DelegateDefine.Instance.OnSceneLoadOk = OnSecneLoadOkCallback;
+    }
+
+    private void OnSecneLoadOkCallback()
+    {
+        if(m_UILoadingCtrl != null)
+        {
+            Destroy(m_UILoadingCtrl.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     private IEnumerator LoadingScene()
@@ -36,19 +47,34 @@ public class LoadingSceneCtrl : MonoBehaviour
             case SceneType.LogOn:
                 strSceneName = "Scene_LogOn";
                 break;
+            case SceneType.SelectRole:
+                strSceneName = "Scene_SelectRole";
+                break;
             case SceneType.City:
                 strSceneName = "GameScene_CunZhuang";
                 break;
         }
 
-        // m_Async = Application.LoadLevelAsync(strSceneName);
-        m_Async = SceneManager.LoadSceneAsync(strSceneName,LoadSceneMode.Single);
-        m_Async.allowSceneActivation = false;
+        if(SceneMgr.Instance.CurrentSceneType == SceneType.SelectRole || SceneMgr.Instance.CurrentSceneType == SceneType.City)
+        {
+            AssetBundleMgr.Instance.LoadAssetAsync(string.Format("Scene/{0}.unity3d", strSceneName), strSceneName, OnLoadABCompleted: (UnityEngine.GameObject obj) =>
+                {
+                    m_Async = SceneManager.LoadSceneAsync(strSceneName, LoadSceneMode.Additive);
+                    m_Async.allowSceneActivation = false;
+                });
+        }
+        else
+        {
+            m_Async = SceneManager.LoadSceneAsync(strSceneName, LoadSceneMode.Additive);
+            m_Async.allowSceneActivation = false;
+        }
+
         yield return m_Async;
     }
 
 	void Update ()
 	{
+        if (m_Async == null) return;
         int toProgress = 0;
 
         if (m_Async.progress < 0.9f)
@@ -65,9 +91,10 @@ public class LoadingSceneCtrl : MonoBehaviour
             m_CurrProgress++;
         }
         else
-        {
+        {          
             m_Async.allowSceneActivation = true;
         }
+        Debug.Log(m_Async.progress);
 
         m_UILoadingCtrl.SetProgressValue(m_CurrProgress * 0.01f);
     }

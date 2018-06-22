@@ -11,6 +11,11 @@ using System.Collections;
 /// </summary>
 public class UISceneCityCtrl : UISceneBase
 {
+    void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     protected override void OnBtnClick(GameObject go)
     {
         switch (go.name)

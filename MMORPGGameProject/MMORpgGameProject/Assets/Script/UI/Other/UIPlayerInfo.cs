@@ -26,6 +26,7 @@ public class UIPlayerInfo : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    
     }
 
 	void Start ()

@@ -28,6 +28,19 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
         AddEventListener(ConstDefine.UIGameServerEnterView_btnEnterGame, GameServerEnterViewBtnEnterGameClick);
         AddEventListener(ConstDefine.UIGameServerEnterView_btnSelectGameServer, GameServerSelectViewBtnSelectGameClick);
 
+        NetWorkSocket.Instance.OnConnectOK = OnConnectOKCallback;
+    }
+
+    /// <summary>
+    /// 当客户端连接服务器成功之后的回调处理
+    /// </summary>
+    private void OnConnectOKCallback()
+    {
+        //开始更新最后连接的区服信息 把这些信息写入后台进行记录
+        UpdateLastLogOnServer(GlobalInit.Instance.m_currentAccountEntity, GlobalInit.Instance.m_currentSelectGameServer);
+
+        AppDebug.Log("和服务器连接成功");
+        SceneMgr.Instance.LoadToSelectRole();
     }
 
     /// <summary>
@@ -121,7 +134,8 @@ public class GameServerCtrl : SystemBaseCtr<GameServerCtrl>
     /// <param name="p"></param>
     private void GameServerEnterViewBtnEnterGameClick(object[] p)
     {
-        UpdateLastLogOnServer(GlobalInit.Instance.m_currentAccountEntity, GlobalInit.Instance.m_currentSelectGameServer);
+        //开始连接区服
+        NetWorkSocket.Instance.Connect(GlobalInit.Instance.m_currentSelectGameServer.Ip, GlobalInit.Instance.m_currentSelectGameServer.Port);
     }
 
     /// <summary>

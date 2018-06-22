@@ -29,7 +29,7 @@ public class GlobalInit : MonoBehaviour
     /// </summary>
     public const string WebAccountUrl = "http://127.0.0.1:8081/";
 
-    public const string SocketIP = "192.168.1.102";
+    public const string SocketIP = "127.0.0.1";
     public const int Port = 1011;
 
     public static GlobalInit Instance;

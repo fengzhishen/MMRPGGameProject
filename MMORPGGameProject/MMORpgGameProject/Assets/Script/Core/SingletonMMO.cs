@@ -15,7 +15,7 @@ public class SingletonMMO<T> : MonoBehaviour where T: MonoBehaviour
             {
                 m_instance = (new GameObject(typeof(T).Name)).AddComponent<T>();
 
-                DontDestroyOnLoad(m_instance);
+                DontDestroyOnLoad(m_instance.gameObject);
             }
 
             return m_instance;

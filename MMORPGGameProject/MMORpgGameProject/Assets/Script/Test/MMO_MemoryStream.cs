@@ -1,269 +1,259 @@
+//===================================================
+//作    者：边涯  http://www.u3dol.com  QQ群：87481002
+//创建时间：2016-01-24 23:08:33
+//备    注：
+//===================================================
 using UnityEngine;
 using System.Collections;
 using System.IO;
 using System;
 using System.Text;
+
 /// <summary>
-/// 内存流：数据转换（byte short int long float等数据）
+/// 数据转换(byte short int long float decimal bool string)
 /// </summary>
 public class MMO_MemoryStream : MemoryStream
 {
-    public MMO_MemoryStream(byte[] bytes):base(bytes)
+    public MMO_MemoryStream()
     {
 
     }
-    public MMO_MemoryStream() : base()
+
+    public MMO_MemoryStream(byte[] buffer) : base(buffer)
     {
 
     }
-    #region Short数据类型读写
+
+    #region Short
     /// <summary>
     /// 从流中读取一个short数据
     /// </summary>
-    /// <returns>short类型数据</returns>
+    /// <returns></returns>
     public short ReadShort()
     {
-        byte[] buffer = new byte[2];
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToInt16(buffer, 0);
+        byte[] arr = new byte[2];
+        base.Read(arr, 0, 2);
+        return BitConverter.ToInt16(arr, 0);
     }
 
     /// <summary>
-    /// 把short类型数据写入到当前的流中
+    /// 把一个short数据写入流
     /// </summary>
     /// <param name="value"></param>
     public void WriteShort(short value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region UShort数据类型读写
+    #region UShort
     /// <summary>
-    /// 从流中读取一个short数据
+    /// 从流中读取一个ushort数据
     /// </summary>
-    /// <returns>ushort类型数据</returns>
+    /// <returns></returns>
     public ushort ReadUShort()
     {
-        byte[] buffer = new byte[2];
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToUInt16(buffer, 0);
+        byte[] arr = new byte[2];
+        base.Read(arr, 0, 2);
+        return BitConverter.ToUInt16(arr, 0);
     }
 
     /// <summary>
-    /// 把ushort类型数据写入到当前的流中
+    /// 把一个ushort数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteUShort(UInt16 value)
+    public void WriteUShort(ushort value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region Int数据类型读写
+    #region Int
     /// <summary>
-    /// 从流中读取一个Int数据
+    /// 从流中读取一个int数据
     /// </summary>
-    /// <returns>int数据类型的数据</returns>
+    /// <returns></returns>
     public int ReadInt()
     {
-        int i = int.MaxValue;
-        int length = BitConverter.GetBytes(i).Length;
-        byte[] buffer = new byte[length]; //支持不知道数据所占字节数适用
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToInt32(buffer, 0);
+        byte[] arr = new byte[4];
+        base.Read(arr, 0, 4);
+        return BitConverter.ToInt32(arr, 0);
     }
 
     /// <summary>
-    /// 把Int类型数据写入到当前的流中
+    /// 把一个int数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteInt(Int32 value)
+    public void WriteInt(int value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region UInt数据类型读写
+    #region UInt
     /// <summary>
-    /// 从流中读取一个UInt数据
+    /// 从流中读取一个uint数据
     /// </summary>
     /// <returns></returns>
     public uint ReadUInt()
     {
-        uint i = uint.MaxValue;
-        int length = BitConverter.GetBytes(i).Length;
-        byte[] buffer = new byte[length]; //支持不知道数据所占字节数适用
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToUInt32(buffer, 0);
+        byte[] arr = new byte[4];
+        base.Read(arr, 0, 4);
+        return BitConverter.ToUInt32(arr, 0);
     }
 
     /// <summary>
-    /// 把UInt类型数据写入到当前的流中
+    /// 把一个uint数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteUInt(UInt32 value)
+    public void WriteUInt(uint value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region Long数据类型读写
+    #region Long
     /// <summary>
     /// 从流中读取一个long数据
     /// </summary>
     /// <returns></returns>
     public long ReadLong()
     {
-        long i = long.MaxValue;
-        int length = BitConverter.GetBytes(i).Length;
-        byte[] buffer = new byte[length]; //支持不知道数据所占字节数适用
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToInt64(buffer, 0);
+        byte[] arr = new byte[8];
+        base.Read(arr, 0, 8);
+        return BitConverter.ToInt64(arr, 0);
     }
 
     /// <summary>
-    /// 把long类型数据写入到当前的流中
+    /// 把一个long数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteLong(Int64 value)
+    public void WriteLong(long value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region ULong数据类型读写
+    #region ULong
     /// <summary>
     /// 从流中读取一个ulong数据
     /// </summary>
     /// <returns></returns>
     public ulong ReadULong()
     {
-        ulong i = ulong.MaxValue;
-        int length = BitConverter.GetBytes(i).Length;
-        byte[] buffer = new byte[length]; //支持不知道数据所占字节数适用
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToUInt64(buffer, 0);
+        byte[] arr = new byte[4];
+        base.Read(arr, 0, 4);
+        return BitConverter.ToUInt64(arr, 0);
     }
 
     /// <summary>
-    /// 把ulong类型数据写入到当前的流中
+    /// 把一个ulong数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteULong(UInt64 value)
+    public void WriteULong(ulong value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region Float数据类型读写
+    #region Float
     /// <summary>
     /// 从流中读取一个float数据
     /// </summary>
     /// <returns></returns>
-    public Single ReadFloat()
+    public float ReadFloat()
     {
-        float i = Single.MaxValue;
-        int length = BitConverter.GetBytes(i).Length;
-        byte[] buffer = new byte[length]; //支持不知道数据所占字节数适用
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToSingle(buffer, 0);
+        byte[] arr = new byte[4];
+        base.Read(arr, 0, 4);
+        return BitConverter.ToSingle(arr, 0);
     }
 
     /// <summary>
-    /// 把float类型数据写入到当前的流中
+    /// 把一个float数据写入流
     /// </summary>
     /// <param name="value"></param>
     public void WriteFloat(float value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region Double数据类型读写
+    #region Double
     /// <summary>
     /// 从流中读取一个double数据
     /// </summary>
     /// <returns></returns>
-    public Double ReadDouble()
-    {      
-        byte[] buffer = new byte[8]; 
-        base.Read(buffer, 0, buffer.Length);
-        return BitConverter.ToDouble(buffer, 0);
+    public double ReadDouble()
+    {
+        byte[] arr = new byte[8];
+        base.Read(arr, 0, 8);
+        return BitConverter.ToDouble(arr, 0);
     }
 
     /// <summary>
-    /// 把double类型数据写入到当前的流中
+    /// 把一个double数据写入流
     /// </summary>
     /// <param name="value"></param>
-    public void WriteDouble(Double value)
+    public void WriteDouble(double value)
     {
-        byte[] buffer = BitConverter.GetBytes(value);
-        base.Write(buffer, 0, buffer.Length);
+        byte[] arr = BitConverter.GetBytes(value);
+        base.Write(arr, 0, arr.Length);
     }
-
     #endregion
 
-    #region Bool数据类型读写
+    #region Bool
     /// <summary>
     /// 从流中读取一个bool数据
     /// </summary>
     /// <returns></returns>
     public bool ReadBool()
     {
-        return base.ReadByte() == 1?true:false;
+        return base.ReadByte() == 1;
     }
 
     /// <summary>
-    /// 把bool类型数据写入到当前的流中
+    /// 把一个bool数据写入流
     /// </summary>
     /// <param name="value"></param>
     public void WriteBool(bool value)
     {
-        base.WriteByte((byte)(value == true ? 1:0));
+        base.WriteByte((byte)(value == true ? 1 : 0));
     }
-
     #endregion
 
+    #region UTF8String
     /// <summary>
-    /// UTF-8编码 读取流中的字符串
+    /// 从流中读取一个sting数组
     /// </summary>
     /// <returns></returns>
     public string ReadUTF8String()
     {
         ushort len = this.ReadUShort();
-        byte[] buffer = new byte[len];
-        base.Read(buffer, 0, len);
-        return Encoding.UTF8.GetString(buffer);
+        byte[] arr = new byte[len];
+        base.Read(arr, 0, len);
+        return Encoding.UTF8.GetString(arr);
     }
 
     /// <summary>
-    /// 将字符串写入流中
+    /// 把一个string数据写入流
     /// </summary>
-    /// <param name="strData">需要写入流中的字符串数据</param>
-    public void WriteUTF8String(string strData)
+    /// <param name="str"></param>
+    public void WriteUTF8String(string str)
     {
-        byte[] bytes = Encoding.UTF8.GetBytes(strData);
-        ushort bytesLength = (ushort)bytes.Length;
-        if(bytesLength > 65535)
+        byte[] arr = Encoding.UTF8.GetBytes(str);
+        if (arr.Length > 65535)
         {
-            throw new InvalidCastException("字符串内容过多");
+            throw new InvalidCastException("字符串超出范围");
         }
-        this.WriteUShort(bytesLength);
-        base.Write(bytes, 0, bytesLength);
+        WriteUShort((ushort)arr.Length);
+        base.Write(arr, 0, arr.Length);
     }
+    #endregion
 }

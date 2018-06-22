@@ -19,8 +19,6 @@ public class SceneMgr : Singleton<SceneMgr>
     public void LoadToLogOn()
     {
         CurrentSceneType = SceneType.LogOn;
-        
-        //Application.LoadLevel("Scene_Loading");
         SceneManager.LoadScene("Scene_Loading");
     }
 
@@ -30,7 +28,16 @@ public class SceneMgr : Singleton<SceneMgr>
     public void LoadToCity()
     {
         CurrentSceneType = SceneType.City;
-        // Application.LoadLevel("Scene_Loading");
+        SceneManager.LoadScene("Scene/SceneMap/Scene_Loading");
+    }
+
+    /// <summary>
+    /// 去角色选择场景
+    /// </summary>
+    public void LoadToSelectRole()
+    {
+        CurrentSceneType = SceneType.SelectRole;
+
         SceneManager.LoadScene("Scene/SceneMap/Scene_Loading");
     }
 }

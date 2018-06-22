@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 1716413925
+CRC: 787061979
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: gamescene_cunzhuang.unity3d
+      Name: scene_selectrole.unity3d
       Dependencies: {}
