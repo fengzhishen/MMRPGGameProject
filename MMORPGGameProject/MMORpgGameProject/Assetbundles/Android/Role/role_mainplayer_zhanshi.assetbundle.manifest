@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2442196137
+CRC: 1529026581
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77b3d417e7c68dec50c5e3cf6e2b5929
+    Hash: 4be69f05d54934c58e139db9f16d3a3a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: cfa37d78c03802772a7e52b8f8b3f5a8
+    Hash: 361a2a6cb0088ad025958c14f329d944
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,11 +21,21 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
 - Class: 90
+  Script: {instanceID: 0}
+- Class: 91
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: efcd2d566e7ae1945bf49efb180ff857, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 221
   Script: {instanceID: 0}
 Assets:
 - Assets/AllPrefab/RolePrefab/Player/Role_MainPlayer_Zhanshi.prefab

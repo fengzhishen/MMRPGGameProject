@@ -35,7 +35,7 @@ public class AssetBundleMgr : Singleton<AssetBundleMgr>
         }
         using (AssetBundleLoader loader = new AssetBundleLoader(abPath))
         {
-           return GameObject.Instantiate<GameObject>(loader.LoadAssetClone<GameObject>(assetName));
+           return loader.LoadAssetClone<GameObject>(assetName);
         }
     }
 

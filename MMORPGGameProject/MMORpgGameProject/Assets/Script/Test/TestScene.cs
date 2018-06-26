@@ -16,12 +16,10 @@ public class TestScene : MonoBehaviour
    
     void Awake()
     {
-        AssetBundleMgr.Instance.LoadAssetAsync("/Role/role_mainplayer.assetbundle","role_mainplayer", OnLoadABCompleted);
-
-    }
-
-    private void OnLoadABCompleted(GameObject @object)
-    {
-        Instantiate<GameObject>(@object);
-    }
+        Debug.Log("当前脚本执行1");
+        GameObject @object = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("GameObject"));
+        TestComponent component = @object.GetComponent<TestComponent>();
+        component.Init();
+        Debug.Log("当前脚本执行完毕2");
+    }  
 }

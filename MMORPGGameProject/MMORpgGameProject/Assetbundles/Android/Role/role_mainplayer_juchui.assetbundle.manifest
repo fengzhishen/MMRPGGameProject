@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3197443271
+CRC: 3451300919
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 94fbe3710ccea6d0d1b86c7cec625195
+    Hash: 10eb33a47a6e089ea42fada606c08ed6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: cfa37d78c03802772a7e52b8f8b3f5a8
+    Hash: 361a2a6cb0088ad025958c14f329d944
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,11 +21,21 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
 - Class: 90
+  Script: {instanceID: 0}
+- Class: 91
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: efcd2d566e7ae1945bf49efb180ff857, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 221
   Script: {instanceID: 0}
 Assets:
 - Assets/AllPrefab/RolePrefab/Player/Role_MainPlayer_Juchui.prefab

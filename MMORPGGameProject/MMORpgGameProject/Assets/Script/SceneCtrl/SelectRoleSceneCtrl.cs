@@ -1,9 +1,22 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class SelectRoleSceneCtrl : MonoBehaviour
 {
+    /// <summary>
+    /// 游戏职业镜像对象
+    /// </summary>
+    private IDictionary<int, GameObject> m_JobObjectDic = new Dictionary<int, GameObject>();
+
+    //职业容器
+    public List<Transform> m_roleContainer;
+
+    private void Awake()
+    {
+        UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.SelectRole);
+    }
 
 	void Start ()
     {
@@ -15,6 +28,8 @@ public class SelectRoleSceneCtrl : MonoBehaviour
         //监听协议
         SocketDispatcher.Instance.AddEventListener(ProtoCodeDef.RoleOperation_LogOnGameServerReturn, OnLogOnGameServerReturn);
         LogOnGameServer();
+        //加载游戏职业角色
+        LoadJobObject();
     }
 
     /// <summary>
@@ -28,6 +43,29 @@ public class SelectRoleSceneCtrl : MonoBehaviour
         }
 
         NetWorkSocket.Instance.SendMsg(proto.ToArray());
+    }
+
+    /// <summary>
+    /// 从本地加载游戏职业镜像并且克隆
+    /// </summary>
+    private void LoadJobObject()
+    {
+        List<JobEntity> jobs = JobDBModel.GetInstance.GetDataList;
+
+        for (int i = 0; i < jobs.Count; i++)
+        {
+            GameObject @object = AssetBundleMgr.Instance.LoadClone(string.Format("/Role/{0}.assetbundle",jobs[i].PrefabName), jobs[i].PrefabName);
+
+            @object.transform.SetParent(m_roleContainer[i]);
+            @object.transform.localScale = Vector3.one;
+            @object.transform.localPosition = Vector3.zero;
+            @object.transform.localRotation = Quaternion.identity;
+
+            if (@object != null)
+            {
+                m_JobObjectDic.Add(jobs[i].Id, @object);
+            }
+        }
     }
 
     /// <summary>

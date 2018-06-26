@@ -39,6 +39,10 @@ public class LoadingSceneCtrl : MonoBehaviour
         }
     }
 
+    public void OnDestory()
+    {
+        DelegateDefine.Instance.OnSceneLoadOk -= OnSecneLoadOkCallback;
+    }
     private IEnumerator LoadingScene()
     {
         string strSceneName = string.Empty;
@@ -67,9 +71,9 @@ public class LoadingSceneCtrl : MonoBehaviour
         {
             m_Async = SceneManager.LoadSceneAsync(strSceneName, LoadSceneMode.Additive);
             m_Async.allowSceneActivation = false;
+            yield return m_Async;
         }
-
-        yield return m_Async;
+    
     }
 
 	void Update ()
@@ -93,9 +97,10 @@ public class LoadingSceneCtrl : MonoBehaviour
         else
         {          
             m_Async.allowSceneActivation = true;
+
         }
-        Debug.Log(m_Async.progress);
 
         m_UILoadingCtrl.SetProgressValue(m_CurrProgress * 0.01f);
+       
     }
 }

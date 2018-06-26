@@ -42,7 +42,7 @@ public abstract class AbstractDBModel<T,P> where T:new() where P:AbstractEntity,
 
     protected virtual string DataFileName()
     {
-        return @"E:\WorkProgram\UnityProject\MMORPGGameProject\WWW\Data\";
+        return @"E:\UnityProject\MMRPGGameProject\MMORPGGameProject\MMORpgGameProject\WWW\Data\" + FileName;
     }
     protected void Load()
     {

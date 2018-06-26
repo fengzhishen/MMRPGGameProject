@@ -28,7 +28,12 @@ public class UISceneCtr : Singleton<UISceneCtr>
         /// <summary>
         /// 主城
         /// </summary>
-        MainCity
+        MainCity,
+
+        /// <summary>
+        /// 选人
+        /// </summary>
+        SelectRole
     }
 
     /// <summary>

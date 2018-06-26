@@ -140,13 +140,12 @@ public class RoleCtrl : MonoBehaviour
 
     void Update()
     {
-        //如果角色没有AI 直接返回
-        if (CurrRoleAI == null) return;
-        CurrRoleAI.DoAI();
-
         if (CurrRoleFSMMgr != null)
             CurrRoleFSMMgr.OnUpdate();
 
+        //如果角色没有AI 直接返回
+        if (CurrRoleAI == null) return;
+        CurrRoleAI.DoAI();   
 
         if (CharacterController == null) return;
 
