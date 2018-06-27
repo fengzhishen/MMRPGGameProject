@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: 43a4fa3257a0bfc4497172b2306872e4
-timeCreated: 1448373711
+timeCreated: 1530090191
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: UIHeadImgAtlas_0
+    21300002: UIHeadImgAtlas_1
+    21300004: UIHeadImgAtlas_2
+    21300006: UIHeadImgAtlas_3
+    21300008: UIHeadImgAtlas_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -17,7 +22,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -33,20 +38,20 @@ TextureImporter:
     aniso: 4
     mipBias: -1
     wrapMode: 1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 5
+  textureType: 8
   buildTargetSettings:
   - buildTarget: iPhone
     maxTextureSize: 4096
@@ -54,7 +59,105 @@ TextureImporter:
     compressionQuality: 100
     allowsAlphaSplitting: 0
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: UIHeadImgAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: 37.5}
+        - {x: -28.5, y: 37.5}
+        - {x: -37.5, y: 32.5}
+        - {x: -37.5, y: -34.5}
+        - {x: -36.5, y: -37.5}
+        - {x: 24.5, y: -37.5}
+        - {x: 37.5, y: -23.5}
+        - {x: 37.5, y: 22.5}
+        - {x: 29.5, y: 36.5}
+    - name: UIHeadImgAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 37.5}
+        - {x: -37.5, y: 21.5}
+        - {x: -37.5, y: -22.5}
+        - {x: -24.5, y: -37.5}
+        - {x: 34.5, y: -37.5}
+        - {x: 37.5, y: -28.5}
+        - {x: 37.5, y: 32.5}
+        - {x: 28.5, y: 37.5}
+    - name: UIHeadImgAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 37.5}
+        - {x: -37.5, y: 32.5}
+        - {x: -37.5, y: -23.5}
+        - {x: -22.5, y: -37.5}
+        - {x: 21.5, y: -37.5}
+        - {x: 37.5, y: -21.5}
+        - {x: 37.5, y: 26.5}
+        - {x: 28.5, y: 37.5}
+    - name: UIHeadImgAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: 37.5}
+        - {x: -28.5, y: 37.5}
+        - {x: -37.5, y: 32.5}
+        - {x: -37.5, y: -34.5}
+        - {x: -36.5, y: -37.5}
+        - {x: 24.5, y: -37.5}
+        - {x: 37.5, y: -23.5}
+        - {x: 37.5, y: 22.5}
+        - {x: 29.5, y: 36.5}
+    - name: UIHeadImgAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 37.5}
+        - {x: -37.5, y: 32.5}
+        - {x: -37.5, y: -23.5}
+        - {x: -22.5, y: -37.5}
+        - {x: 21.5, y: -37.5}
+        - {x: 37.5, y: -21.5}
+        - {x: 37.5, y: 26.5}
+        - {x: 28.5, y: 37.5}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

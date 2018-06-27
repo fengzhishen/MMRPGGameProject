@@ -210,3 +210,102 @@ public enum Language
     CN,
     EN
 }
+
+/// <summary>
+/// 图片资源类型
+/// </summary>
+public enum SpriteSourceType
+{
+    /// <summary>
+    /// 剧情关卡图标
+    /// </summary>
+    GameLevelIco = 0,
+    /// <summary>
+    /// 剧情关卡详情图片
+    /// </summary>
+    GameLevelDetail = 1,
+    /// <summary>
+    /// 世界地图图标
+    /// </summary>
+    WorldMapIco = 2,
+    /// <summary>
+    /// 世界地图小地图
+    /// </summary>
+    WorldMapSmall = 3
+}
+
+/// <summary>
+/// 角色动画状态
+/// </summary>
+public enum RoleAnimatorState
+{
+    Idle_Normal = 1,
+    Idle_Fight = 2,
+    Run = 3,
+    Hurt = 4,
+    Die = 5,
+    Select = 6,
+    XiuXian = 7,
+    Died = 8,
+    PhyAttack1 = 11,
+    PhyAttack2 = 12,
+    PhyAttack3 = 13,
+    Skill1 = 14,
+    Skill2 = 15,
+    Skill3 = 16,
+    Skill4 = 17,
+    Skill5 = 18,
+    Skill6 = 19,
+}
+/// <summary>
+/// 角色攻击类型
+/// </summary>
+public enum RoleAttackType
+{
+    /// <summary>
+    /// 物理攻击
+    /// </summary>
+    PhyAttack,
+    /// <summary>
+    /// 技能攻击
+    /// </summary>
+    SkillAttack
+}
+
+/// <summary>
+/// 游戏关卡难度等级
+/// </summary>
+public enum GameLevelGrade
+{
+    /// <summary>
+    /// 普通
+    /// </summary>
+    Normal = 0,
+    /// <summary>
+    /// 困难
+    /// </summary>
+    Hard = 1,
+    /// <summary>
+    /// 地狱
+    /// </summary>
+    Hell = 2
+}
+
+/// <summary>
+/// 物品类型
+/// </summary>
+public enum GoodsType
+{
+    /// <summary>
+    /// 装备
+    /// </summary>
+    Equip = 0,
+    /// <summary>
+    /// 道具
+    /// </summary>
+    Item = 1,
+    /// <summary>
+    /// 材料
+    /// </summary>
+    Material = 2
+}

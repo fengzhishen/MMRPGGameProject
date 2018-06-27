@@ -35,7 +35,10 @@ public class UISelectRoleDragView : MonoBehaviour, IBeginDragHandler, IDragHandl
         //说明鼠标向左滑动
         else if (x_pointerVariable < -20)
         {
-            m_OnSelectRoleDrag(1, m_IsRotating);// 1表示鼠标向右滑动
+             if(m_OnSelectRoleDrag != null)
+            {
+                m_OnSelectRoleDrag(1, m_IsRotating);// 1表示鼠标向右滑动
+            }
         }
     }
 
@@ -43,7 +46,6 @@ public class UISelectRoleDragView : MonoBehaviour, IBeginDragHandler, IDragHandl
     {
         m_IsRotating = false;
         m_endDragPos = eventData.position;
-        Debug.Log(m_endDragPos);
         if (m_OnSelectRoleDrag != null)
         {
             m_OnSelectRoleDrag(0, m_IsRotating);// 0表示鼠标向左滑动
