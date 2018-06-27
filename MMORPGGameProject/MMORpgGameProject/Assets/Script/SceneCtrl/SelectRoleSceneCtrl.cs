@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
@@ -7,26 +7,26 @@ using DG.Tweening;
 public class SelectRoleSceneCtrl : MonoBehaviour
 {
     /// <summary>
-    /// ÓÎÏ·Ö°Òµ¾µÏñ¶ÔÏó
+    /// æ¸¸æˆèŒä¸šé•œåƒå¯¹è±¡
     /// </summary>
     private IDictionary<int, GameObject> m_JobObjectDic = new Dictionary<int, GameObject>();
 
-    //Ö°ÒµÈİÆ÷
+    //èŒä¸šå®¹å™¨
     public List<Transform> m_roleContainer;
 
-    //ÍÏ×§µÄÄ¿±ê
+    //æ‹–æ‹½çš„ç›®æ ‡
     public Transform m_dragTarget;
 
-    //Ã¿´ÎĞı×ªµÄ½Ç¶È
+    //æ¯æ¬¡æ—‹è½¬çš„è§’åº¦
     private float m_rotateAngle = 90;
 
-    //Ä¿±ê½Ç¶È
+    //ç›®æ ‡è§’åº¦
     private float m_targetAngle = 0;
 
-    //ÊÇ·ñÔÚĞı×ªÖĞ
+    //æ˜¯å¦åœ¨æ—‹è½¬ä¸­
     private bool m_IsRotate = false;
 
-    //Ğı×ªËÙ¶È
+    //æ—‹è½¬é€Ÿåº¦
     [SerializeField]
     private float m_rotateSpeed = 20;
 
@@ -48,7 +48,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// µ±µã»÷Ñ¡ÈË³¡¾°ÖĞµÄÖ°ÒµUI»Øµ÷´¦Àí
+    /// å½“ç‚¹å‡»é€‰äººåœºæ™¯ä¸­çš„èŒä¸šUIå›è°ƒå¤„ç†
     /// </summary>
     /// <param name="jobId"></param>
     /// <param name="rotateAngle"></param>
@@ -68,10 +68,10 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// ÍÏ×§Ñ¡ÈËÊÓÍ¼
+    /// æ‹–æ‹½é€‰äººè§†å›¾
     /// </summary>
-    /// <param name="obj">0=×óÑ¡Ôñ 1=ÏòÓÒÑ¡Ôñ</param>
-    /// <param name="m_IsRotating">±êÊ¶ÊÇ·ñÔÚÍÏ×§ÖĞ</param>
+    /// <param name="obj">0=å·¦é€‰æ‹© 1=å‘å³é€‰æ‹©</param>
+    /// <param name="m_IsRotating">æ ‡è¯†æ˜¯å¦åœ¨æ‹–æ‹½ä¸­</param>
     private void OnSelectRoleDragCallback(int obj,bool m_IsRotating)
     {
         m_IsRotate = m_IsRotating;
@@ -106,55 +106,55 @@ public class SelectRoleSceneCtrl : MonoBehaviour
                 for (int i = 0; i < m_uiSceneSelectRoleView.m_uiSelectRoleJobItemViewList.Length; i++)
                 {
                     m_uiSceneSelectRoleView.m_uiSelectRoleJobItemViewList[i].OnSelectJob = OnSelectJobCallback;
-                    Debug.Log("i=" + i);
                 }
             }
         }
-        //¼àÌı·şÎñÆ÷·µ»ØµÇÂ¼ĞÅÏ¢ÊÂ¼ş
+        //ç›‘å¬æœåŠ¡å™¨è¿”å›ç™»å½•ä¿¡æ¯äº‹ä»¶
         SocketDispatcher.Instance.AddEventListener(ProtoCodeDef.RoleOperation_LogOnGameServerReturn, OnLogOnGameServerReturn);
 
-        //×¢²á·şÎñÆ÷·µ»Ø´´½¨½ÇÉ«ÊÂ¼ş
+        //æ³¨å†ŒæœåŠ¡å™¨è¿”å›åˆ›å»ºè§’è‰²äº‹ä»¶
         SocketDispatcher.Instance.AddEventListener(ProtoCodeDef.RoleOperation_CreateRoleReturn, OnCreateRoleReturnEventHandler);
        
-        //×¢²á¿ªÊ¼ÓÎÏ·°´Å¥µã»÷ÊÂ¼ş
+        //æ³¨å†Œå¼€å§‹æ¸¸æˆæŒ‰é’®ç‚¹å‡»äº‹ä»¶
         m_uiSceneSelectRoleView.OnBtnBeginGameClick = OnBtnBeginGameClickEventHanlder;
 
         LogOnGameServer();
-        //¼ÓÔØÓÎÏ·Ö°Òµ½ÇÉ«
+
+        //åŠ è½½æ¸¸æˆèŒä¸šè§’è‰²
         LoadJobObject();
     }
 
     public void Destory()
     {
-        //ÒÆ³ı¶Ô·şÎñÆ÷·µ»ØµÇÂ¼ĞÅÏ¢ÊÂ¼şµÄ¼àÌı
+        //ç§»é™¤å¯¹æœåŠ¡å™¨è¿”å›ç™»å½•ä¿¡æ¯äº‹ä»¶çš„ç›‘å¬
         SocketDispatcher.Instance.RemoveEventListener(ProtoCodeDef.RoleOperation_LogOnGameServerReturn, OnLogOnGameServerReturn);
 
-        //È¡Ïû·şÎñÆ÷·µ»Ø´´½¨½ÇÉ«ÊÂ¼ş¼àÌı
+        //å–æ¶ˆæœåŠ¡å™¨è¿”å›åˆ›å»ºè§’è‰²äº‹ä»¶ç›‘å¬
         SocketDispatcher.Instance.RemoveEventListener(ProtoCodeDef.RoleOperation_CreateRoleReturn, OnCreateRoleReturnEventHandler);
 
-        //ÒÆ³ı¿ªÊ¼ÓÎÏ·°´Å¥µã»÷ÊÂ¼ş¼àÌı
+        //ç§»é™¤å¼€å§‹æ¸¸æˆæŒ‰é’®ç‚¹å‡»äº‹ä»¶ç›‘å¬
         m_uiSceneSelectRoleView.OnBtnBeginGameClick -= OnBtnBeginGameClickEventHanlder;
     }
     /// <summary>
-    /// ·şÎñÆ÷¶Ô¿Í»§¶Ë´´½¨½ÇÉ«µÄÊÂ¼şÏìÓ¦
+    /// æœåŠ¡å™¨å¯¹å®¢æˆ·ç«¯åˆ›å»ºè§’è‰²çš„äº‹ä»¶å“åº”
     /// </summary>
     /// <param name="p"></param>
     private void OnCreateRoleReturnEventHandler(byte[] p)
     {
         RoleOperation_CreateRoleReturnProto proto = RoleOperation_CreateRoleReturnProto.GetProto(p);
-
+        Debug.Log(proto.IsSuccess);
         if(proto.IsSuccess)
         {
-            AppDebug.Log("´´½¨³É¹¦");
+            AppDebug.Log("åˆ›å»ºæˆåŠŸ");
         }
         else
         {
-            UIMessageCtr.Instance.Show("ÌáÊ¾", "´´½¨½ÇÉ«Ê§°Ü");
+            UIMessageCtr.Instance.Show("æç¤º", "åˆ›å»ºè§’è‰²å¤±è´¥");
         }
     }
 
     /// <summary>
-    /// µã»÷¿ªÊ¼ÓÎÏ·°´Å¥ÊÂ¼ş´¦Àí
+    /// ç‚¹å‡»å¼€å§‹æ¸¸æˆæŒ‰é’®äº‹ä»¶å¤„ç†
     /// </summary>
     private void OnBtnBeginGameClickEventHanlder()
     {
@@ -163,19 +163,19 @@ public class SelectRoleSceneCtrl : MonoBehaviour
         proto.JobId = (byte)m_currentJobId;
         proto.RoleNickName = m_uiSceneSelectRoleView.RoleNameInputField.text;
 
-        //½ÇÉ«êÇ³ÆºÏ·¨ĞÔ¼ì²é
+        //è§’è‰²æ˜µç§°åˆæ³•æ€§æ£€æŸ¥
         if(string.IsNullOrEmpty(proto.RoleNickName))
         {
-            UIMessageCtr.Instance.Show("ÌáÊ¾", "ÇëÊäÈëÄãµÄêÇ³Æ");
+            UIMessageCtr.Instance.Show("æç¤º", "è¯·è¾“å…¥ä½ çš„æ˜µç§°");
             return;
         }
 
-        //°Ñ´´½¨µÄ½ÇÉ«ĞÅÏ¢·¢ËÍµ½·şÎñ¶Ë
+        //æŠŠåˆ›å»ºçš„è§’è‰²ä¿¡æ¯å‘é€åˆ°æœåŠ¡ç«¯
         NetWorkSocket.Instance.SendMsg(proto.ToArray());
     }
 
     /// <summary>
-    /// µÇÂ¼·şÎñÆ÷
+    /// ç™»å½•æœåŠ¡å™¨
     /// </summary>
     private void LogOnGameServer()
     {
@@ -188,7 +188,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// ´Ó±¾µØ¼ÓÔØÓÎÏ·Ö°Òµ¾µÏñ²¢ÇÒ¿ËÂ¡
+    /// ä»æœ¬åœ°åŠ è½½æ¸¸æˆèŒä¸šé•œåƒå¹¶ä¸”å…‹éš†
     /// </summary>
     private void LoadJobObject()
     {
@@ -211,7 +211,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     }
 
     /// <summary>
-    /// µ±ÎÒÃÇµÇÂ¼ÓÎÏ·Çø·ş ·şÎñÆ÷¸øÎÒÃÇ·µ»ØµÄ½ÇÉ«ĞèÒªµÄÊı¾İĞÅÏ¢
+    /// å½“æˆ‘ä»¬ç™»å½•æ¸¸æˆåŒºæœ æœåŠ¡å™¨ç»™æˆ‘ä»¬è¿”å›çš„è§’è‰²éœ€è¦çš„æ•°æ®ä¿¡æ¯
     /// </summary>
     /// <param name="p"></param>
     private void OnLogOnGameServerReturn(byte[] p)
@@ -221,15 +221,15 @@ public class SelectRoleSceneCtrl : MonoBehaviour
         int roleCount = proto.RoleCount;
         AppDebug.Log("roleCount =" + roleCount);
 
-        //Íæ¼Ò»¹Ã»´´½¨¹ı½ÇÉ«
+        //ç©å®¶è¿˜æ²¡åˆ›å»ºè¿‡è§’è‰²
         if(roleCount == 0)
         {
-            //ÒªĞÂ½¨½ÇÉ«  µ¯ĞÂ½¨½ÇÉ«½çÃæ
+            //è¦æ–°å»ºè§’è‰²  å¼¹æ–°å»ºè§’è‰²ç•Œé¢
 
-            //³õÊ¼»¯µÄÊ±ºò Ö°ÒµidÎª1
+            //åˆå§‹åŒ–çš„æ—¶å€™ èŒä¸šidä¸º1
             m_currentJobId = 1;
 
-            //ÓÎÏ·Ò»Æô¶¯¾ÍËæ»úÒ»¸öÃû×Ö
+            //æ¸¸æˆä¸€å¯åŠ¨å°±éšæœºä¸€ä¸ªåå­—
             m_uiSceneSelectRoleView.RandomRoleName();
         }
         else
