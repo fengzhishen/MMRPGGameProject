@@ -58,6 +58,10 @@ public class UISceneCtr : Singleton<UISceneCtr>
                 break;
             case SceneUIType.Loading:
                 break;
+            case SceneUIType.SelectRole:
+                obj = ResourcesMgr.Instance.Load(ResourcesMgr.ResourceType.UIScene, "UI_Root_SelectRole");
+                CurrentUIScene = obj.GetComponent<UISceneViewBase>();
+                break;
             case SceneUIType.MainCity:
                 obj = ResourcesMgr.Instance.Load(ResourcesMgr.ResourceType.UIScene, "UI Root_City");
                 CurrentUIScene = obj.GetComponent<UISceneViewBase>();

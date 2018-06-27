@@ -1,15 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System;
 
-public class UISceneSelectRoleView : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class UISceneSelectRoleView : UISceneViewBase
+{
+    //ÍÏ×ºµÄÊÓÍ¼
+    public UISelectRoleDragView m_UISelectRoleDragView;
 }

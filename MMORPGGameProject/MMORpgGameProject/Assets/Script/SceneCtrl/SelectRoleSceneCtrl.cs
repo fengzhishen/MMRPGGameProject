@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class SelectRoleSceneCtrl : MonoBehaviour
 {
+    private UISceneSelectRoleView m_UISceneSelectRoleView;
     /// <summary>
     /// 游戏职业镜像对象
     /// </summary>
@@ -13,12 +14,51 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     //职业容器
     public List<Transform> m_roleContainer;
 
+    //拖拽的目标
+    public Transform m_dragTarget;
+
+    //每次旋转的角度
+    private float m_rotateAngle = 90;
+
+    //目标角度
+    private float m_targetAngle = 0;
+
+    //是否在旋转中
+    private bool m_IsRotate = false;
+
+    //旋转速度
+    [SerializeField]
+    private float m_rotateSpeed = 20;
+
     private void Awake()
     {
-        UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.SelectRole);
+        m_UISceneSelectRoleView = UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.SelectRole).GetComponent<UISceneSelectRoleView>();
+
+        m_UISceneSelectRoleView.m_UISelectRoleDragView.m_OnSelectRoleDrag = OnSelectRoleDragCallback;
     }
 
-	void Start ()
+    /// <summary>
+    /// 拖拽选人视图
+    /// </summary>
+    /// <param name="obj">0=左选择 1=向右选择</param>
+    /// <param name="m_IsRotating">标识是否在拖拽中</param>
+    private void OnSelectRoleDragCallback(int obj,bool m_IsRotating)
+    {
+        m_IsRotate = m_IsRotating;
+        m_rotateAngle = Mathf.Abs(m_rotateAngle) * (obj == 0 ? -1 : 1);
+        m_targetAngle = m_dragTarget.eulerAngles.y + m_rotateAngle;
+        Debug.Log(obj);
+    }
+
+    void Update()
+    {
+        if(m_IsRotate == true)
+        {
+            float toAnleY = Mathf.MoveTowardsAngle(m_dragTarget.eulerAngles.y, m_targetAngle, Time.deltaTime * m_rotateSpeed);
+            m_dragTarget.eulerAngles = new Vector3(m_dragTarget.eulerAngles.x, toAnleY, m_dragTarget.eulerAngles.z);
+        }
+    }
+    void Start ()
     {
 	   if(DelegateDefine.Instance.OnSceneLoadOk != null)
         {
