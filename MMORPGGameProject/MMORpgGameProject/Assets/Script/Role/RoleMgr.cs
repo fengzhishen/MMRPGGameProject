@@ -9,6 +9,29 @@ using System.Collections.Generic;
 
 public class RoleMgr:Singleton<RoleMgr> 
 {
+    /// <summary>
+    /// 主角是否已经初始化
+    /// </summary>
+    private bool m_IsMainPlayerInit = false;
+
+    /// <summary>
+    /// 初始化主角
+    /// </summary>
+    public void InitMainPlayer()
+    {
+        if (m_IsMainPlayerInit == true) return;
+
+        if (GlobalInit.Instance.MainPlayerInfo == null) return;
+
+        GameObject MainPlayerObj = Object.Instantiate<GameObject>(GlobalInit.Instance.m_JobObjectDic[GlobalInit.Instance.MainPlayerInfo.JobId]);
+
+        GlobalInit.Instance.CurrPlayer = MainPlayerObj.GetComponent<RoleCtrl>();
+
+        GlobalInit.Instance.CurrPlayer.Init(RoleType.MainPlayer, GlobalInit.Instance.MainPlayerInfo, new RoleMainPlayerCityAI(GlobalInit.Instance.CurrPlayer));
+
+        m_IsMainPlayerInit = true;
+    }
+
     #region LoadRole 根据角色预设名称 加载角色
     /// <summary>
     /// 根据角色预设名称 加载角色

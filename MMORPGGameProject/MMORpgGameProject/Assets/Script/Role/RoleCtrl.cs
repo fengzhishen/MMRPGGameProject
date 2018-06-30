@@ -221,7 +221,7 @@ public class RoleCtrl : MonoBehaviour
         roleHeadBarCtrl = m_HeadBar.GetComponent<RoleHeadBarCtrl>();
 
         //给预设赋值
-        roleHeadBarCtrl.Init(m_HeadBarPos, CurrRoleInfo.NickName, isShowHPBar: (CurrRoleType == RoleType.MainPlayer ? false : true));
+        //roleHeadBarCtrl.Init(m_HeadBarPos, CurrRoleInfo.NickName, isShowHPBar: (CurrRoleType == RoleType.MainPlayer ? false : true));
     }
 
 
@@ -272,18 +272,18 @@ public class RoleCtrl : MonoBehaviour
         }
 
         
-        CurrRoleInfo.CurrHP -= hurt;
+        //CurrRoleInfo.CurrHP -= hurt;
 
-        roleHeadBarCtrl.Hurt(hurt, (float)CurrRoleInfo.CurrHP / CurrRoleInfo.MaxHP);
+        //roleHeadBarCtrl.Hurt(hurt, (float)CurrRoleInfo.CurrHP / CurrRoleInfo.MaxHP);
 
-        if (CurrRoleInfo.CurrHP <= 0)
-        {
-            CurrRoleFSMMgr.ChangeState(RoleState.Die);
-        }
-        else
-        {
-            CurrRoleFSMMgr.ChangeState(RoleState.Hurt);
-        }
+        //if (CurrRoleInfo.CurrHP <= 0)
+        //{
+        //    CurrRoleFSMMgr.ChangeState(RoleState.Die);
+        //}
+        //else
+        //{
+        //    CurrRoleFSMMgr.ChangeState(RoleState.Hurt);
+        //}
     }
 
     public void ToDie()

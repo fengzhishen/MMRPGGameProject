@@ -62,6 +62,12 @@ public class GlobalInit : MonoBehaviour
     public AnimationCurve UIAnimationCurve = new AnimationCurve(new Keyframe(0f, 0f, 0f, 1f), new Keyframe(1f, 1f, 1f, 0f));
 
     /// <summary>
+    /// 主角信息
+    /// </summary>
+    [HideInInspector]
+    public RoleInfoMainPlayer MainPlayerInfo;
+
+    /// <summary>
     /// 当前选择的区服
     /// </summary>
     [HideInInspector]

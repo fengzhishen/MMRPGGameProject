@@ -225,6 +225,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
 
         if(proto.IsSucess)
         {
+            GlobalInit.Instance.MainPlayerInfo = new RoleInfoMainPlayer(proto);
             //需要跳转场景
             SceneMgr.Instance.LoadToCity();
         }
@@ -417,7 +418,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
 
             if (@object != null)
             {
-                m_JobObjectDic.Add(m_jobEntityList[i].Id, @object);
+                GlobalInit.Instance.m_JobObjectDic.Add(m_jobEntityList[i].Id, @object);
             }
         }
     }
@@ -432,7 +433,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
     {
         for (int i = 0; i < m_jobEntityList.Count; i++)
         {
-            GameObject @object = Instantiate<GameObject>(m_JobObjectDic[m_jobEntityList[i].Id]);
+            GameObject @object = Instantiate<GameObject>(GlobalInit.Instance.m_JobObjectDic[m_jobEntityList[i].Id]);
 
             if(m_CloneRolePrefabList.Contains(@object))
             {
@@ -570,9 +571,9 @@ public class SelectRoleSceneCtrl : MonoBehaviour
             }
         }
         if (jobId == -1) return;
-        if (m_JobObjectDic != null && m_JobObjectDic.ContainsKey(jobId))
+        if (GlobalInit.Instance.m_JobObjectDic != null && GlobalInit.Instance.m_JobObjectDic.ContainsKey(jobId))
         {
-            m_SelectRoleObj = Instantiate<GameObject>(m_JobObjectDic[jobId]);
+            m_SelectRoleObj = Instantiate<GameObject>(GlobalInit.Instance.m_JobObjectDic[jobId]);
             m_SelectRoleObj.transform.SetParent(m_SelectRoleContainer);
             m_SelectRoleObj.transform.localPosition = Vector3.zero;
             m_SelectRoleObj.transform.localScale = Vector3.one;

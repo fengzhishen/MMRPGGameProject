@@ -61,11 +61,11 @@ public class RoleMonsterAI : IRoleAI
         }
         else
         {
-            if (CurrRole.LockEnemy.CurrRoleInfo.CurrHP <= 0)
-            {
-                CurrRole.LockEnemy = null;
-                return;
-            }
+            //if (CurrRole.LockEnemy.CurrRoleInfo.CurrHP <= 0)
+            //{
+            //    CurrRole.LockEnemy = null;
+            //    return;
+            //}
 
             //如果有锁定敌人
             //1.如果我和锁定敌人的距离 超过了我的视野范围 则取消锁定
