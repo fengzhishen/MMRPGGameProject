@@ -8,6 +8,7 @@ using System.Collections;
 using System;
 using System.Net.NetworkInformation;
 using UnityEngine.iOS;
+using System.Collections.Generic;
 
 public class GlobalInit : MonoBehaviour 
 {
@@ -46,6 +47,15 @@ public class GlobalInit : MonoBehaviour
     [HideInInspector]
     public RoleCtrl CurrPlayer;
 
+    /// <summary>
+    /// 游戏职业镜像对象
+    /// </summary>
+    public IDictionary<int, GameObject> m_JobObjectDic = new Dictionary<int, GameObject>();
+
+    /// <summary>
+    /// 地面shader
+    /// </summary>
+    public Shader T4MGroundShader;
     /// <summary>
     /// UI动画曲线
     /// </summary>

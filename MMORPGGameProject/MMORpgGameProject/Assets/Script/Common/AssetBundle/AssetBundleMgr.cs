@@ -8,16 +8,16 @@ public class AssetBundleMgr : Singleton<AssetBundleMgr>
     /// </summary>
     /// <param name="abPath"></param>
     /// <param name="assetName"></param>
-    public void LoadAsset(string abPath,string assetName)
+    public GameObject LoadAsset(string abPath,string assetName)
     {
         if(string.IsNullOrEmpty(abPath) || string.IsNullOrEmpty(assetName))
         {
             Debug.LogError(GetType() + "/参数非法");
-            return;
+            return null;
         }
         using (AssetBundleLoader loader = new AssetBundleLoader(abPath))
         {
-            loader.LoadAssetClone<GameObject>(assetName);
+           return loader.LoadAsset<GameObject>(assetName);
         }
     }
 
@@ -39,11 +39,18 @@ public class AssetBundleMgr : Singleton<AssetBundleMgr>
         }
     }
 
-    public void LoadAssetAsync(string abPath,string assetName,System.Action<GameObject> OnLoadABCompleted)
+    public AssetBundleLoaderAsync LoadAssetAsync(string abPath,string assetName,System.Action<GameObject> OnLoadABCompleted)
     {
         GameObject @object = new GameObject();
         AssetBundleLoaderAsync loaderAsync = @object.AddComponent<AssetBundleLoaderAsync>();
         loaderAsync.OnLoadABCompleted += OnLoadABCompleted;
         loaderAsync.InitPathAndAssetName(abPath, assetName);
+        return loaderAsync;
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        Resources.UnloadUnusedAssets();
     }
 }

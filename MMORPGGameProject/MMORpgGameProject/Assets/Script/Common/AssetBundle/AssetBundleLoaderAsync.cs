@@ -22,7 +22,7 @@ public class AssetBundleLoaderAsync:MonoBehaviour
 	private IEnumerator Load()
     {
         byte[] abBtyes = LoadFileMgr.Instance.GetBuffer(LoadFileMgr.Instance.LoacalFilePath + "/" + abPath);
-        bundleRequest = AssetBundle.LoadFromMemoryAsync(abBtyes);
+        bundleRequest = AssetBundle.LoadFromMemoryAsync(abBtyes);       
         asyncProgess = bundleRequest.progress;
         yield return bundleRequest;
         bundle = bundleRequest.assetBundle;
@@ -30,14 +30,16 @@ public class AssetBundleLoaderAsync:MonoBehaviour
         {
             OnLoadABCompleted(bundle.LoadAsset<GameObject>(assetName));
             Destroy(gameObject);
-        }      
+        }
     }
 
     private void OnDestory()
-    {
+    {       
         if(bundle != null)
         {
             bundle.Unload(false);
         }
+        abPath = null;
+        assetName = null;
     }
 }

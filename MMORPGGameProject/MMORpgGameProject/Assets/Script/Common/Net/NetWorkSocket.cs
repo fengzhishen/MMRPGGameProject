@@ -43,7 +43,7 @@ public class NetWorkSocket : SingletonMMO<NetWorkSocket>
     /// <summary>
     /// 客户端socket
     /// </summary>
-    private Socket m_Client;
+    public Socket m_Client;
 
     public Action OnConnectOK;
 

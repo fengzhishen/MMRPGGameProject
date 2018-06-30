@@ -28,4 +28,9 @@ public class LoadFileMgr : Singleton<LoadFileMgr>
         }
         return buffer;
     }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+    }
 }

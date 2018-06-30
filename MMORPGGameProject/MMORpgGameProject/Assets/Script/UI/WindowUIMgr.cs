@@ -36,7 +36,10 @@ public class WindowUIMgr : Singleton<WindowUIMgr>
     public GameObject OpenWindow(WindowUIType type)
     {
         if (type == WindowUIType.None) return null;
-    
+        if(m_DicWindow.ContainsKey(type) && m_DicWindow[type] == null)
+        {
+            m_DicWindow.Remove(type);
+        }
         GameObject obj = null;
         //如果窗口不存在 则
         if (!m_DicWindow.ContainsKey(type))
