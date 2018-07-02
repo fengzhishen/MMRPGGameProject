@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class RoleMgr:Singleton<RoleMgr> 
 {
@@ -17,7 +18,7 @@ public class RoleMgr:Singleton<RoleMgr>
     /// <summary>
     /// 初始化主角
     /// </summary>
-    public void InitMainPlayer()
+    public void InitMainPlayer(Transform m_PlayerBornPos)
     {
         if (m_IsMainPlayerInit == true) return;
 
@@ -25,11 +26,23 @@ public class RoleMgr:Singleton<RoleMgr>
 
         GameObject MainPlayerObj = Object.Instantiate<GameObject>(GlobalInit.Instance.m_JobObjectDic[GlobalInit.Instance.MainPlayerInfo.JobId]);
 
+        MainPlayerObj.transform.SetParent(m_PlayerBornPos);
+
         GlobalInit.Instance.CurrPlayer = MainPlayerObj.GetComponent<RoleCtrl>();
 
         GlobalInit.Instance.CurrPlayer.Init(RoleType.MainPlayer, GlobalInit.Instance.MainPlayerInfo, new RoleMainPlayerCityAI(GlobalInit.Instance.CurrPlayer));
 
         m_IsMainPlayerInit = true;
+    }
+
+    /// <summary>
+    /// 从安装包中加载角色头像
+    /// </summary>
+    /// <param name="headPic"></param>
+    /// <returns></returns>
+    public Sprite LoadRoleHead(string headPic)
+    {
+        return Resources.Load<Sprite>(string.Format("UI/HeadImg/{0}", headPic));
     }
 
     #region LoadRole 根据角色预设名称 加载角色

@@ -5,6 +5,7 @@
 //===================================================
 using UnityEngine;
 using System.Collections;
+using System;
 
 /// <summary>
 /// 场景UI管理器
@@ -47,7 +48,7 @@ public class UISceneCtr : Singleton<UISceneCtr>
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
-    public GameObject LoadSceneUI(SceneUIType type)
+    public GameObject LoadSceneUI(SceneUIType type,Action OnLoadComplete = null)
     {
         GameObject obj = null;
         switch (type)
@@ -63,10 +64,12 @@ public class UISceneCtr : Singleton<UISceneCtr>
                 CurrentUIScene = obj.GetComponent<UISceneViewBase>();
                 break;
             case SceneUIType.MainCity:
-                obj = ResourcesMgr.Instance.Load(ResourcesMgr.ResourceType.UIScene, "UI Root_City");
+                obj = ResourcesMgr.Instance.Load(ResourcesMgr.ResourceType.UIScene, "UI_Root_MainCity");
                 CurrentUIScene = obj.GetComponent<UISceneViewBase>();
                 break;
         }
+
+        CurrentUIScene.OnLoadComplete = OnLoadComplete;
         return obj;
     }
     #endregion

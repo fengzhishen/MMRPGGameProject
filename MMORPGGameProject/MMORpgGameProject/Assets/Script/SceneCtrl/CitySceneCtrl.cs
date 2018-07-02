@@ -5,6 +5,7 @@
 //===================================================
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class CitySceneCtrl : MonoBehaviour 
 {
@@ -14,9 +15,10 @@ public class CitySceneCtrl : MonoBehaviour
     [SerializeField]
     private Transform m_PlayerBornPos;
 
+    private UISceneMainCityView UISceneMainCityView;
     void Awake()
     {
-       // SceneUIMgr.Instance.LoadSceneUI(SceneUIMgr.SceneUIType.MainCity);
+        UISceneMainCityView = UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.MainCity,OnLoadComplete).GetComponent<UISceneMainCityView>();
 
         if (FingerEvent.Instance != null)
         {
@@ -24,6 +26,14 @@ public class CitySceneCtrl : MonoBehaviour
             FingerEvent.Instance.OnZoom += OnZoom;
             FingerEvent.Instance.OnPlayerClick += OnPlayerClick;
         }
+    }
+
+    /// <summary>
+    /// 当资源加载完毕后
+    /// </summary>
+    private void OnLoadComplete()
+    {
+        PlayerCtr.Instance.SetMainCityRoleInfo();
     }
 
     void Start()
@@ -46,7 +56,7 @@ public class CitySceneCtrl : MonoBehaviour
 
         if (GlobalInit.Instance == null) return;
 
-        RoleMgr.Instance.InitMainPlayer();
+        RoleMgr.Instance.InitMainPlayer(m_PlayerBornPos);
 
         if(GlobalInit.Instance.CurrPlayer != null)
         {
@@ -96,7 +106,7 @@ public class CitySceneCtrl : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hitInfo))
             {
-                if (hitInfo.collider.gameObject.name.Equals("Ground", System.StringComparison.CurrentCultureIgnoreCase))
+                if (hitInfo.collider.gameObject.tag.Equals("Road", System.StringComparison.CurrentCultureIgnoreCase))
                 {
                     if (GlobalInit.Instance.CurrPlayer != null)
                     {

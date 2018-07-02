@@ -5,10 +5,14 @@
 //===================================================
 using UnityEngine;
 using System.Collections;
+using Pathfinding;
+
 
 /// <summary>
 /// 角色控制器
 /// </summary>
+[RequireComponent(typeof(FunnelModifier))]
+[RequireComponent(typeof(Seeker))]
 public class RoleCtrl : MonoBehaviour 
 {
     #region 成员变量或属性
@@ -104,9 +108,23 @@ public class RoleCtrl : MonoBehaviour
     /// </summary>
     public RoleFSMMgr CurrRoleFSMMgr = null;
 
-    private RoleHeadBarCtrl roleHeadBarCtrl = null;
+    private RoleHeadBarView roleHeadBarView = null;
 
     #endregion
+
+    /**************寻路相关***************************************/
+    private Seeker m_seeker;
+
+    /// <summary>
+    /// 路径
+    /// </summary>
+    [HideInInspector]
+    public ABPath AStarPath;
+
+    /// <summary>
+    /// 当前要去的路径点
+    /// </summary>
+    public int AStartCurrWayPoint = 1;
 
     /// <summary>
     /// 初始化
@@ -125,6 +143,9 @@ public class RoleCtrl : MonoBehaviour
     {
         CharacterController = GetComponent<CharacterController>();
 
+        //寻路 计算路径的类
+        m_seeker = GetComponent<Seeker>();
+        Debug.Log(m_seeker.name);
         if (CurrRoleType == RoleType.MainPlayer)
         {
             if (CameraCtrl.Instance != null)
@@ -216,12 +237,11 @@ public class RoleCtrl : MonoBehaviour
         m_HeadBar = ResourcesMgr.Instance.Load(ResourcesMgr.ResourceType.UIOther, "RoleHeadBar");
         m_HeadBar.transform.parent = RoleHeadBarRoot.Instance.gameObject.transform;
         m_HeadBar.transform.localScale = Vector3.one;
-
-
-        roleHeadBarCtrl = m_HeadBar.GetComponent<RoleHeadBarCtrl>();
+        m_HeadBar.transform.localPosition = Vector3.zero;
+        roleHeadBarView = m_HeadBar.GetComponent<RoleHeadBarView>();
 
         //给预设赋值
-        //roleHeadBarCtrl.Init(m_HeadBarPos, CurrRoleInfo.NickName, isShowHPBar: (CurrRoleType == RoleType.MainPlayer ? false : true));
+        roleHeadBarView.Init(m_HeadBarPos, CurrRoleInfo.RoleNickName, isShowHPBar: (CurrRoleType == RoleType.MainPlayer ? false : true));
     }
 
 
@@ -232,12 +252,40 @@ public class RoleCtrl : MonoBehaviour
         CurrRoleFSMMgr.ChangeState(RoleState.Idle);
     }
 
+    /// <summary>
+    /// 告诉玩家去哪里
+    /// </summary>
+    /// <param name="targetPos"></param>
     public void MoveTo(Vector3 targetPos)
     {
         //如果目标点不是原点 进行移动
         if (targetPos == Vector3.zero) return;
         TargetPos = targetPos;
-        CurrRoleFSMMgr.ChangeState(RoleState.Run);
+        //CurrRoleFSMMgr.ChangeState(RoleState.Run);
+
+        //计算路径
+        m_seeker.StartPath(transform.position, targetPos, (Path p) =>
+          {
+              if(!p.error)
+              {
+                  AStarPath = (ABPath)p;
+
+                  if(Vector3.Distance(AStarPath.endPoint,new Vector3(AStarPath.originalEndPoint.x, AStarPath.endPoint.y, AStarPath.originalEndPoint.z)) > 1f)
+                  {
+                      AppDebug.Log("不能到达目标点");
+                      AStarPath = null;
+                  }
+
+                  AStartCurrWayPoint = 1;
+                  CurrRoleFSMMgr.ChangeState(RoleState.Run);
+              }
+              else
+              {
+                  //寻路失败
+                  AppDebug.LogError(p.errorLog);
+                  AStarPath = null;
+              }
+          });
     }
 
     public void ToAttack()

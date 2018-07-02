@@ -38,26 +38,26 @@ public class RoleMonsterAI : IRoleAI
 
     public void DoAI()
     {
-        if (CurrRole.CurrRoleFSMMgr.CurrRoleStateEnum == RoleState.Die) return;
+        //if (CurrRole.CurrRoleFSMMgr.CurrRoleStateEnum == RoleState.Die) return;
 
         if (CurrRole.LockEnemy == null)
         {
-            //如果是待机状态
-            if (CurrRole.CurrRoleFSMMgr.CurrRoleStateEnum == RoleState.Idle)
-            {
-                if (Time.time > m_NextPatrolTime)
-                {
-                    m_NextPatrolTime = Time.time + UnityEngine.Random.Range(5f, 10f);
-                    //进行巡逻
-                    CurrRole.MoveTo(new Vector3(CurrRole.BornPoint.x + UnityEngine.Random.Range(CurrRole.PatrolRange * -1, CurrRole.PatrolRange), CurrRole.BornPoint.y, CurrRole.BornPoint.z + UnityEngine.Random.Range(CurrRole.PatrolRange * -1, CurrRole.PatrolRange)));
-                }
-            }
+            ////如果是待机状态
+            //if (CurrRole.CurrRoleFSMMgr.CurrRoleStateEnum == RoleState.Idle)
+            //{
+            //    if (Time.time > m_NextPatrolTime)
+            //    {
+            //        m_NextPatrolTime = Time.time + UnityEngine.Random.Range(5f, 10f);
+            //        //进行巡逻
+            //        CurrRole.MoveTo(new Vector3(CurrRole.BornPoint.x + UnityEngine.Random.Range(CurrRole.PatrolRange * -1, CurrRole.PatrolRange), CurrRole.BornPoint.y, CurrRole.BornPoint.z + UnityEngine.Random.Range(CurrRole.PatrolRange * -1, CurrRole.PatrolRange)));
+            //    }
+            //}
 
             //如果主角在怪的视野范围内
-            if (Vector3.Distance(CurrRole.transform.position, GlobalInit.Instance.CurrPlayer.transform.position) <= CurrRole.ViewRange)
-            {
-                CurrRole.LockEnemy = GlobalInit.Instance.CurrPlayer;
-            }
+            //if (Vector3.Distance(CurrRole.transform.position, GlobalInit.Instance.CurrPlayer.transform.position) <= CurrRole.ViewRange)
+            //{
+            //    CurrRole.LockEnemy = GlobalInit.Instance.CurrPlayer;
+            //}
         }
         else
         {
