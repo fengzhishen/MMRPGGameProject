@@ -159,6 +159,19 @@ public class RoleCtrl : MonoBehaviour
         InitHeadBar();
     }
 
+    /// <summary>
+    /// 开启自动小地图
+    /// </summary>
+    private void AutoSamllMap()
+    {
+        if (SamllMapHelper.Instance == null || UIMainCitySmallMapView.Instance == null) return;
+
+        //让角色总是在这个点上
+        SamllMapHelper.Instance.transform.position = transform.position;
+
+        UIMainCitySmallMapView.Instance.transform.localPosition = new Vector3(SamllMapHelper.Instance.transform.position.x * 512, SamllMapHelper.Instance.transform.position.z * 512,1);
+    }
+
     void Update()
     {
         if (CurrRoleFSMMgr != null)
@@ -176,30 +189,9 @@ public class RoleCtrl : MonoBehaviour
             CharacterController.Move((transform.position + new Vector3(0, -1000, 0)) - transform.position);
         }
 
-        //if (Input.GetMouseButtonUp(1))
-        //{
-        //    Collider[] colliderArr = Physics.OverlapSphere(transform.position, 3, 1 << LayerMask.NameToLayer("Item"));
-        //    if (colliderArr.Length > 0)
-        //    {
-        //        for (int i = 0; i < colliderArr.Length; i++)
-        //        {
-        //            Debug.Log("找到了附近的箱子" + colliderArr[i].gameObject.name);
-        //        }
-        //    }
-        //}
-
         if (Input.GetMouseButtonUp(1))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit[] hitArr = Physics.RaycastAll(ray, Mathf.Infinity, 1 << LayerMask.NameToLayer("Item"));
-
-            //if (hitArr.Length > 0)
-            //{
-            //    for (int i = 0; i < hitArr.Length; i++)
-            //    {
-            //        Debug.Log("找到了" + hitArr[i].collider.gameObject.name);
-            //    }
-            //}
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);         
 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Item")))
@@ -222,6 +214,8 @@ public class RoleCtrl : MonoBehaviour
         {
             CameraAutoFollow();
         }
+
+        AutoSamllMap();
     }
 
     /// <summary>

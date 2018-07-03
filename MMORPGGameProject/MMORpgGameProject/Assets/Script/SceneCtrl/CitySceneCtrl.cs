@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
 public class CitySceneCtrl : MonoBehaviour 
 {
@@ -89,6 +90,12 @@ public class CitySceneCtrl : MonoBehaviour
     /// </summary>
     private void OnPlayerClick()
     {
+        //防止UI穿透
+        if(EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hitInfo;
