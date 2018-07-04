@@ -14,8 +14,8 @@
       <Path Value="Assets\AllPrefab\RolePrefab\Player\Role_MainPlayer_Zhanshi.prefab"/>
     </Item>
     
-    <Item Name="GameScene_CunZhuang" Tag="Scene" Version="1" Size="0" ToPath="/Scene/">
-      <Path Value="Assets\Scene\SceneMap\GameScene_CunZhuang.unity"/>
+    <Item Name="GameScene_HuPaoCun" Tag="Scene" Version="1" Size="0" ToPath="/Scene/">
+      <Path Value="Assets\Scene\SceneMap\GameScene_HuPaoCun.unity"/>
     </Item>
     <Item Name="Scene_SelectRole" Tag="Scene" Version="1" Size="0" ToPath="/Scene/">
       <Path Value="Assets\Scene\SceneMap\Scene_SelectRole.unity"/>

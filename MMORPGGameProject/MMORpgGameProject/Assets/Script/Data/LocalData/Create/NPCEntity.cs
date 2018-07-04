@@ -1,31 +1,21 @@
 
 //===================================================
 //作    者：边涯  http://www.u3dol.com  QQ群：87481002
-//创建时间：2018-07-02 07:43:28
+//创建时间：2018-07-04 10:55:58
 //备    注：此代码为工具生成 请勿手工修改
 //===================================================
 using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// Job实体
+/// NPC实体
 /// </summary>
-public partial class JobEntity : AbstractEntity
+public partial class NPCEntity : AbstractEntity
 {
     /// <summary>
-    /// 职业名称
+    /// 名称
     /// </summary>
     public string Name { get; set; }
-
-    /// <summary>
-    /// 头像
-    /// </summary>
-    public string HeadPic { get; set; }
-
-    /// <summary>
-    /// 职业半身像
-    /// </summary>
-    public string JobPic { get; set; }
 
     /// <summary>
     /// 预设名称
@@ -33,8 +23,18 @@ public partial class JobEntity : AbstractEntity
     public string PrefabName { get; set; }
 
     /// <summary>
-    /// 职业描述
+    /// 头像
     /// </summary>
-    public string Desc { get; set; }
+    public string HeadPic { get; set; }
+
+    /// <summary>
+    /// 半身像
+    /// </summary>
+    public string HalfBodyPic { get; set; }
+
+    /// <summary>
+    /// 自言自语
+    /// </summary>
+    public string Talk { get; set; }
 
 }

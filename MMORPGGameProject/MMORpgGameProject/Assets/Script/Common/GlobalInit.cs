@@ -121,4 +121,23 @@ public class GlobalInit : MonoBehaviour
             ServerTime = long.Parse(obj.Value.Trim('\"'));
         }
     }  
+
+
+    public void Update()
+    {
+         /*********采集世界地图相关数据***************/
+         //采集当前玩家坐标
+         if(Input.GetKeyDown(KeyCode.C))
+        {
+            if (GlobalInit.Instance.CurrPlayer == null) return;
+
+            //得到主角当前的位置信息 
+            Transform trans = GlobalInit.Instance.CurrPlayer.transform;
+
+            //采集位置坐标组拼成字符串
+            string pos = string.Format("{0}_{1}_{2}_{3}", trans.position.x, trans.position.y, trans.position.z,trans.eulerAngles.y);
+
+            Debug.Log("位置信息=" + pos);
+        }
+    }
 }

@@ -1,40 +1,40 @@
 
 //===================================================
 //作    者：边涯  http://www.u3dol.com  QQ群：87481002
-//创建时间：2018-07-02 07:43:28
+//创建时间：2018-07-04 10:55:59
 //备    注：此代码为工具生成 请勿手工修改
 //===================================================
 using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// Job实体
+/// WorldMap实体
 /// </summary>
-public partial class JobEntity : AbstractEntity
+public partial class WorldMapEntity : AbstractEntity
 {
     /// <summary>
-    /// 职业名称
+    /// 名称
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// 头像
+    /// 场景名称
     /// </summary>
-    public string HeadPic { get; set; }
+    public string SceneName { get; set; }
 
     /// <summary>
-    /// 职业半身像
+    /// NPC列表
     /// </summary>
-    public string JobPic { get; set; }
+    public string NPCList { get; set; }
 
     /// <summary>
-    /// 预设名称
+    /// 主角出生点
     /// </summary>
-    public string PrefabName { get; set; }
+    public string RoleBirthPos { get; set; }
 
     /// <summary>
-    /// 职业描述
+    /// 摄像机旋转角度
     /// </summary>
-    public string Desc { get; set; }
+    public string CameraRotation { get; set; }
 
 }

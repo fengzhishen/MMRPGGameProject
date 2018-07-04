@@ -55,7 +55,7 @@ public class LoadingSceneCtrl : MonoBehaviour
                 strSceneName = "Scene_SelectRole";
                 break;
             case SceneType.City:
-                strSceneName = "GameScene_CunZhuang";
+                strSceneName = "GameScene_HuPaoCun";
                 break;
         }
 
