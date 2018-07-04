@@ -23,11 +23,26 @@ public class SceneMgr : Singleton<SceneMgr>
     }
 
     /// <summary>
-    /// 去城镇场景
+    /// 当前世界地图id
     /// </summary>
-    public void LoadToCity()
+    private int m_currWorldMapId = -1;
+
+    /// <summary>
+    /// 当前所在的世界地图编号
+    /// </summary>
+    public int CurrWorldMapId
     {
-        CurrentSceneType = SceneType.City;
+        get { return m_currWorldMapId; }
+    }
+    /// <summary>
+    /// 去世界地图场景(主城 + 野外场景)
+    /// </summary>
+    public void LoadToWorldMap(int worldMapId)
+    {
+        this.m_currWorldMapId = worldMapId;
+
+        CurrentSceneType = SceneType.WorldMap;
+
         SceneManager.LoadScene("Scene/SceneMap/Scene_Loading");
     }
 

@@ -8,7 +8,7 @@ using System.Collections;
 using System;
 using UnityEngine.EventSystems;
 
-public class CitySceneCtrl : MonoBehaviour 
+public class WorldMapSceneCtrl : MonoBehaviour 
 {
     /// <summary>
     /// 主角出生点

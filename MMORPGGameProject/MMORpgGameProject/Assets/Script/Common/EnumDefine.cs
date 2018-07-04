@@ -13,7 +13,9 @@ using System.Collections;
 public enum SceneType
 {
     LogOn,
-    City,
+
+    WorldMap,
+
     SelectRole
 }
 #endregion

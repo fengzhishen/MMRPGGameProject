@@ -227,7 +227,7 @@ public class SelectRoleSceneCtrl : MonoBehaviour
         {
             GlobalInit.Instance.MainPlayerInfo = new RoleInfoMainPlayer(proto);
             //需要跳转场景
-            SceneMgr.Instance.LoadToCity();
+            SceneMgr.Instance.LoadToWorldMap(proto.LastInWorldMapId);
         }
         else
         {

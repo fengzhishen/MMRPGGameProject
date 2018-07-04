@@ -54,12 +54,12 @@ public class LoadingSceneCtrl : MonoBehaviour
             case SceneType.SelectRole:
                 strSceneName = "Scene_SelectRole";
                 break;
-            case SceneType.City:
+            case SceneType.WorldMap:
                 strSceneName = "GameScene_HuPaoCun";
                 break;
         }
 
-        if(SceneMgr.Instance.CurrentSceneType == SceneType.SelectRole || SceneMgr.Instance.CurrentSceneType == SceneType.City)
+        if(SceneMgr.Instance.CurrentSceneType == SceneType.SelectRole || SceneMgr.Instance.CurrentSceneType == SceneType.WorldMap)
         {
             AssetBundleMgr.Instance.LoadAssetAsync(string.Format("Scene/{0}.unity3d", strSceneName), strSceneName, OnLoadABCompleted: (UnityEngine.GameObject obj) =>
                 {
