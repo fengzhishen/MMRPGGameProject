@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 public class WorldMapSceneCtrl : MonoBehaviour 
 {
     /// <summary>
-    /// 主角出生点
+    /// 主角出生点  临时使用 真正的时候是策划在Excel表中配置的
     /// </summary>
     [SerializeField]
     private Transform m_PlayerBornPos;
@@ -39,17 +39,7 @@ public class WorldMapSceneCtrl : MonoBehaviour
 
     void Start()
     {
-        ////加载玩家
-        //GameObject obj = RoleMgr.Instance.LoadRole("Role_MainPlayer_Cike", RoleType.MainPlayer);
-
-        //obj.transform.position = m_PlayerBornPos.position;
-
-        //给当前玩家赋值
-        //GlobalInit.Instance.CurrPlayer = obj.GetComponent<RoleCtrl>();
-        //GlobalInit.Instance.CurrPlayer.Init(RoleType.MainPlayer, new RoleInfoBase() { NickName = GlobalInit.Instance.CurrRoleNickName, CurrHP=10000, MaxHP=10000 }, new RoleMainPlayerCityAI(GlobalInit.Instance.CurrPlayer));
-
-       // UIPlayerInfo.Instance.SetPlayerInfo();
-
+        
         if(DelegateDefine.Instance.OnSceneLoadOk != null)
         {
             DelegateDefine.Instance.OnSceneLoadOk();
@@ -61,7 +51,21 @@ public class WorldMapSceneCtrl : MonoBehaviour
 
         if(GlobalInit.Instance.CurrPlayer != null)
         {
-            GlobalInit.Instance.CurrPlayer.gameObject.transform.position = m_PlayerBornPos.position;
+            WorldMapEntity worldMapEntity = WorldMapDBModel.GetInstance.GetEntityById(SceneMgr.Instance.CurrWorldMapId);
+
+            if(worldMapEntity != null)
+            {
+                GlobalInit.Instance.CurrPlayer.gameObject.transform.position = worldMapEntity.RoleBirthPosition;
+
+                GlobalInit.Instance.CurrPlayer.gameObject.transform.eulerAngles = new Vector3(0,worldMapEntity.RoleBirthY,0);
+
+            }
+            else
+            {
+                //没有得到表格中的坐标就用临时的 
+                GlobalInit.Instance.CurrPlayer.gameObject.transform.position = m_PlayerBornPos.position;
+            }
+
         }
     }
 
