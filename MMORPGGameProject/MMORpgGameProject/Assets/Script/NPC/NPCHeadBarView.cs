@@ -16,17 +16,31 @@ public class NPCHeadBarView : MonoBehaviour
     private Text lblNickName;
 
     /// <summary>
-    /// 
+    /// NPCHeadBar 跟踪的位置
     /// </summary>
     private Transform m_target;
+
+    private RectTransform rectTransform = null;
+
     void Start()
     {
-       
+        rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
     {
-       
+        if (m_target == null) return;
+
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(m_target.position);
+
+        Vector3 worldPoint = Vector3.zero;
+
+        bool bSuccess = RectTransformUtility.ScreenPointToWorldPointInRectangle(UISceneCtr.Instance.CurrentUIScene.m_Canvas.GetComponent<RectTransform>(), screenPos, UI_Camera.Instance.Camera, out worldPoint);
+
+        if (bSuccess == true)
+        {
+            transform.position = worldPoint;
+        }
     }
 
     /// <summary>
@@ -35,7 +49,7 @@ public class NPCHeadBarView : MonoBehaviour
     /// <param name="nickName"></param>
     public void Init(Transform @object, string nickName)
     {
-        transform.position = @object.position;
+        m_target = @object;
 
         lblNickName.text = nickName;
     }

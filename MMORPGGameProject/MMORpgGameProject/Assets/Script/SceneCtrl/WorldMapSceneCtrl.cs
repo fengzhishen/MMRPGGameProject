@@ -22,7 +22,11 @@ public class WorldMapSceneCtrl : MonoBehaviour
 
     void Awake()
     {
+        UISceneCtr.Instance.CurrentUIScene = UISceneMainCityView;
+
         UISceneMainCityView = UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.MainCity,OnLoadComplete).GetComponent<UISceneMainCityView>();
+
+        UISceneCtr.Instance.CurrentUIScene = UISceneMainCityView;
 
         if (FingerEvent.Instance != null)
         {

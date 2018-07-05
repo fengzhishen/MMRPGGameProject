@@ -4,6 +4,7 @@ using System;
 
 public class UISceneViewBase : UIViewBase
 {
+    public Canvas m_Canvas;
     /// <summary>
     /// ÈÝÆ÷_¾ÓÖÐ
     /// </summary>

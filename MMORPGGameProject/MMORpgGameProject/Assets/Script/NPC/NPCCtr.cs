@@ -26,13 +26,13 @@ public class NPCCtr : MonoBehaviour
     {
         m_CurrNPCEntity = NPCDBModel.GetInstance.GetEntityById(npcData.NPCId);
 
-        InitHeadBar(@object);
+        InitHeadBar();
     }
 
     /// <summary>
     /// 初始化NPC头顶血条
     /// </summary>
-    private void InitHeadBar(GameObject @object)
+    private void InitHeadBar()
     {
         if (RoleHeadBarRoot.Instance == null) return;
 
@@ -47,10 +47,8 @@ public class NPCCtr : MonoBehaviour
 
         m_HeadBar.transform.localScale = Vector3.one;
 
-        m_HeadBar.transform.localPosition = Vector3.zero;
-
         NPCHeadBarView nPCHeadBarView = m_HeadBar.GetComponent<NPCHeadBarView>();
 
-        nPCHeadBarView.Init(@object.transform, m_CurrNPCEntity.Name);
+        nPCHeadBarView.Init(m_HeadBarPos, m_CurrNPCEntity.Name);
     }
 }
