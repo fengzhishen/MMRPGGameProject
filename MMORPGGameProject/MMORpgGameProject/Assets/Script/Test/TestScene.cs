@@ -19,7 +19,6 @@ public class TestScene : MonoBehaviour
         Debug.Log("当前脚本执行1");
         GameObject @object = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("GameObject"));
         TestComponent component = @object.GetComponent<TestComponent>();
-        component.Init();
         Debug.Log("当前脚本执行完毕2");
     }  
 }

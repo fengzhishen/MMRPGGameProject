@@ -69,6 +69,20 @@ public class RoleMgr:Singleton<RoleMgr>
     }
     #endregion
 
+    /// <summary>
+    /// load npc to ram
+    /// </summary>
+    /// <param name="prefabName"></param>
+    /// <returns></returns>
+    public  GameObject LoadNPC(string prefabName)
+    {
+        GameObject @object = AssetBundleMgr.Instance.LoadAsset(string.Format("/Role/{0}.assetbundle", prefabName),prefabName);
+
+        @object = UnityEngine.Object.Instantiate<GameObject>(@object);
+
+        return @object;
+    }
+
     public override void Dispose()
     {
         base.Dispose();

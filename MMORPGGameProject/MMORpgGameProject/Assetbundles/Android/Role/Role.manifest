@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 3285588591
+CRC: 879839572
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: role_mainplayer_zhanshi.assetbundle
+      Name: npc_zhujian.assetbundle
       Dependencies: {}

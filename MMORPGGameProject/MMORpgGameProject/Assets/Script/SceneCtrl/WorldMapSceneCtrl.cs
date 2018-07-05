@@ -17,6 +17,9 @@ public class WorldMapSceneCtrl : MonoBehaviour
     private Transform m_PlayerBornPos;
 
     private UISceneMainCityView UISceneMainCityView;
+
+    private WorldMapEntity worldMapEntity;
+
     void Awake()
     {
         UISceneMainCityView = UISceneCtr.Instance.LoadSceneUI(UISceneCtr.SceneUIType.MainCity,OnLoadComplete).GetComponent<UISceneMainCityView>();
@@ -51,7 +54,7 @@ public class WorldMapSceneCtrl : MonoBehaviour
 
         if(GlobalInit.Instance.CurrPlayer != null)
         {
-            WorldMapEntity worldMapEntity = WorldMapDBModel.GetInstance.GetEntityById(SceneMgr.Instance.CurrWorldMapId);
+             worldMapEntity = WorldMapDBModel.GetInstance.GetEntityById(SceneMgr.Instance.CurrWorldMapId);
 
             if(worldMapEntity != null)
             {
@@ -66,6 +69,30 @@ public class WorldMapSceneCtrl : MonoBehaviour
                 GlobalInit.Instance.CurrPlayer.gameObject.transform.position = m_PlayerBornPos.position;
             }
 
+        }
+
+        StartCoroutine(InitNPC());
+    }
+
+    private IEnumerator InitNPC()
+    {
+        yield return null;
+
+        if (worldMapEntity == null) yield break;
+
+        for (int i = 0; i < worldMapEntity.NPCWorldMapList.Count; i++)
+        {
+            NPCWorldMapData data = worldMapEntity.NPCWorldMapList[i];
+
+            NPCEntity nPCEntity = NPCDBModel.GetInstance.GetEntityById(data.NPCId);
+
+            GameObject @object = RoleMgr.Instance.LoadNPC(nPCEntity.PrefabName);
+
+            @object.transform.position = data.NPCPostion;
+
+            @object.transform.eulerAngles = new Vector3(0,data.EulerAngleY,0);
+
+            @object.GetComponent<NPCCtr>().Init(data, @object);
         }
     }
 
