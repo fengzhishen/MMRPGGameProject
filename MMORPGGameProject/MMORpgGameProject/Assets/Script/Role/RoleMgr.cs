@@ -45,6 +45,16 @@ public class RoleMgr:Singleton<RoleMgr>
         return Resources.Load<Sprite>(string.Format("UI/HeadImg/{0}", headPic));
     }
 
+    /// <summary>
+    /// 根据职业id加载角色
+    /// </summary>
+    /// <param name="jobId"></param>
+    /// <returns></returns>
+    public GameObject LoadPlayer(int jobId)
+    {
+       return Object.Instantiate(GlobalInit.Instance.m_JobObjectDic[jobId]);
+    }
+
     #region LoadRole 根据角色预设名称 加载角色
     /// <summary>
     /// 根据角色预设名称 加载角色

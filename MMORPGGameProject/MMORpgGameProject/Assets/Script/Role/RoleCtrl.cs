@@ -145,7 +145,6 @@ public class RoleCtrl : MonoBehaviour
 
         //寻路 计算路径的类
         m_seeker = GetComponent<Seeker>();
-        Debug.Log(m_seeker.name);
         if (CurrRoleType == RoleType.MainPlayer)
         {
             if (CameraCtrl.Instance != null)

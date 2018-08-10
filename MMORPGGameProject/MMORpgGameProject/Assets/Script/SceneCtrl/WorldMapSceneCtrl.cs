@@ -8,6 +8,9 @@ using System.Collections;
 using System;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// 世界地图场景控制器
+/// </summary>
 public class WorldMapSceneCtrl : MonoBehaviour 
 {
     /// <summary>

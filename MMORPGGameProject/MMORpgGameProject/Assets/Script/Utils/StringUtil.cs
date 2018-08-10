@@ -26,20 +26,7 @@ public  static class StringUtil
         }
         else
         {
-            try
-            {
-                throw new FormatException("数据类型转换失败");
-            }
-            catch (FormatException e)
-            {
-
-                Debug.LogError(e.Message);
-            }
-            finally
-            {
-                
-            }
-            return 0;
+            return int.MinValue;
         }
     }
 
@@ -51,7 +38,8 @@ public  static class StringUtil
     {
         if (string.IsNullOrEmpty(str))
         {
-            Debug.LogError("字符串非法" + str);
+            Debug.Log("字符串非法" + str);
+            return float.MinValue;
         }
         return float.Parse(str);
     }

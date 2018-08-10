@@ -245,4 +245,14 @@ public class GameUtil
         return pathLen;
     }
     #endregion
+
+    public static Sprite LoadGameLevelIcon(string gameLevelIconName)
+    {
+        return Resources.Load<Sprite>(@"UI\GameLevel\GameLevelIco\" + gameLevelIconName);
+    }
+
+    public static Sprite LoadGameLevelDetailIcon(string gameLevelDetailIconName)
+    {
+        return Resources.Load<Sprite>(@"UI\GameLevel\GameLevelDetail\" + gameLevelDetailIconName);
+    }
 }

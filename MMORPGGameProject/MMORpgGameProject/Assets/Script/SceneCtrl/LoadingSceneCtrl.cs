@@ -55,8 +55,28 @@ public class LoadingSceneCtrl : MonoBehaviour
                 strSceneName = "Scene_SelectRole";
                 break;
             case SceneType.WorldMap:
-                strSceneName = "GameScene_HuPaoCun";
+
+                //现在需要根据当前服务器返回的最后登录的世界地图id拿到地图相关实体数据
+                WorldMapEntity worldMapEntity = WorldMapDBModel.GetInstance.GetEntityById(SceneMgr.Instance.CurrWorldMapId);
+
+                if(worldMapEntity != null)
+                {
+                    //现在我们从地图实体类中找到我们地图编号对应的场景名字
+                    strSceneName = worldMapEntity.SceneName;
+                }
+                else
+                {
+                    AppDebug.Log(GetType() + "/LoadingScene()/当前世界地图id没有得到对应的实体数据,请检查。id = " + SceneMgr.Instance.CurrWorldMapId);
+                    strSceneName = string.Empty;
+                }
                 break;
+        }
+
+        //说明有错误需要调整
+        if(strSceneName == string.Empty)
+        {
+            //直接退出携程
+            yield break;
         }
 
         if(SceneMgr.Instance.CurrentSceneType == SceneType.SelectRole || SceneMgr.Instance.CurrentSceneType == SceneType.WorldMap)

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8bc2e5983ca97b044b48b5efc1d12195
-timeCreated: 1468246884
+timeCreated: 1470141118
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName: {}
@@ -43,15 +43,17 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 20, y: 20, z: 20, w: 20}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites: []
     outline: []
   spritePackingTag: 
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: download/source/uisource/uicommon/bg_010
+  assetBundleVariant: assetbundle

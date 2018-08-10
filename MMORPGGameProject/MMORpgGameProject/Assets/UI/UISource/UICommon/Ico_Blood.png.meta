@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ccbef379c114244f90fab90b4888133
+guid: d7c9cde84d7179f43a79767f0896de3b
 timeCreated: 1448373452
 licenseType: Pro
 TextureImporter:
@@ -46,12 +46,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites: []
     outline: []
   spritePackingTag: 
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: download/source/uisource/uicommon/ico_blood
+  assetBundleVariant: assetbundle

@@ -46,12 +46,14 @@ TextureImporter:
   spriteBorder: {x: 126, y: 22, z: 126, w: 63}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites: []
     outline: []
   spritePackingTag: 
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: download/source/uisource/uicommon/bg_001
+  assetBundleVariant: assetbundle

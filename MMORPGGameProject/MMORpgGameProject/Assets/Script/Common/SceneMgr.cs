@@ -39,6 +39,7 @@ public class SceneMgr : Singleton<SceneMgr>
     /// </summary>
     public void LoadToWorldMap(int worldMapId)
     {
+        //保存当前世界地图编号
         this.m_currWorldMapId = worldMapId;
 
         CurrentSceneType = SceneType.WorldMap;

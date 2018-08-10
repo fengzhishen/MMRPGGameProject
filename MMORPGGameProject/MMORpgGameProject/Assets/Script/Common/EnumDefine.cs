@@ -52,6 +52,16 @@ public enum WindowUIType
     /// 区服选择
     /// </summary>
     GameServerSelect,
+
+    /// <summary>
+    /// 剧情关卡地图
+    /// </summary>
+    GameLevelMap,
+
+    /// <summary>
+    /// 剧情关卡详情
+    /// </summary>
+    GameLevelDetail
 }
 #endregion
 

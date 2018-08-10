@@ -19,6 +19,12 @@ public class UISceneMainCityView : UISceneViewBase
             case "btnTopMenu":
                 ChangeMenState(go);
                 break;
+            case "btnMenu_Role":
+                PlayerCtr.Instance.OpenRoleInfoView(Container_Center);
+                break;
+            case "btnMenu_GameLevel":
+                GameLevelCtrl.Instance.OpenView(WindowUIType.GameLevelMap, Container_Center);
+                break;
             default:
                 break;
         }

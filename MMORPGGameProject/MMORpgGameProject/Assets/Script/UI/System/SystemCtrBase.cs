@@ -31,6 +31,6 @@ public class SystemBaseCtr<T> : Singleton<T> where T:new()
 
     protected void OpenView(WindowUIType type)
     {
-        WindowUIMgr.Instance.OpenWindow(type);
+       WindowUIMgr.Instance.OpenWindow(type);
     }
 }

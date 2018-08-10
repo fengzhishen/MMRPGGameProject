@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 46d87ef247509e5429bc98097c4678a9
+timeCreated: 1460891809
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 3
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FZZhengHeiS-M-GB
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: download/source/uisource/uifont/font_jcy
+  assetBundleVariant: assetbundle

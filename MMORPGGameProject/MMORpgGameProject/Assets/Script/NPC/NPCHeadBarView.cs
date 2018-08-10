@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class NPCHeadBarView : MonoBehaviour
 {
@@ -20,11 +21,39 @@ public class NPCHeadBarView : MonoBehaviour
     /// </summary>
     private Transform m_target;
 
+    [SerializeField]
+    private Text m_npcTalkContentText;
+
+    [SerializeField]
+    private Image m_npcTalkBgImge;
+
     private RectTransform rectTransform = null;
 
+    private Tweener m_npcScaleBgtweener;
+
+    private Tweener m_npcRotateBgtweener;
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+
+        //开始禁用NPC自言自语的背景图片
+        if (m_npcTalkBgImge.gameObject.activeSelf)
+        {
+            m_npcTalkBgImge.gameObject.SetActive(!m_npcTalkBgImge.gameObject.activeSelf);
+        }
+
+        m_npcTalkBgImge.transform.localScale = Vector3.zero;
+
+        m_npcScaleBgtweener = m_npcTalkBgImge.transform.DOScale(Vector3.one, 0.8f).SetAutoKill<Tweener>(false).Pause().
+            OnPlay(() =>
+            {
+                m_npcTalkBgImge.gameObject.SetActive(true);
+
+            }).OnRewind(()=> {
+                m_npcTalkBgImge.gameObject.SetActive(false);
+            });
+
+        m_npcRotateBgtweener = m_npcTalkBgImge.transform.DORotate(new Vector3(0, 0, Random.Range(-20, 20)), 1f, RotateMode.Fast).SetAutoKill(false).Pause().SetLoops(-1,LoopType.Yoyo);
     }
 
     void Update()
@@ -41,8 +70,33 @@ public class NPCHeadBarView : MonoBehaviour
         {
             transform.position = worldPoint;
         }
+
+        if(Time.time > m_npcTalkStopTime)
+        {
+            m_npcScaleBgtweener.PlayBackwards();
+        }
     }
 
+    /// <summary>
+    /// NPC说话停止时间
+    /// </summary>
+    private float m_npcTalkStopTime;
+
+    /// <summary>
+    /// NPC自言自语
+    /// </summary>
+    /// <param name="npcTalkContent"></param>
+    /// <param name="time"></param>
+    public void NPCTalck(string npcTalkContent,float time)
+    {
+        m_npcTalkStopTime = Time.time + time;
+
+        m_npcTalkContentText.text = npcTalkContent;
+
+        m_npcScaleBgtweener.PlayForward();
+
+        m_npcRotateBgtweener.PlayForward();
+    }
     /// <summary>
     /// 
     /// </summary>
